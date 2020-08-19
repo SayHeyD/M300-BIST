@@ -19,5 +19,5 @@ Ebenfalls habe ich schon einen SSH-Key generiert und deshalb diesen Schritt auch
 
 Da ich in der Freizeit programmiere habe ich schon seit längerer Zeit einen GitHub und GitLab Account.
 
-<img src="https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.06.45.png" alt="WireGuard AppStore Page" width="300px">
+<img src="https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.06.45.png" alt="WireGuard AppStore Page" width="200px">
 
