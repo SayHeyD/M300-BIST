@@ -26,6 +26,8 @@ Mit Virtualisierung habe ich auch schon einiges gemacht. In der Arbeit haben wir
 
 In meinem Arbeitsumfeld wird grundsätzlich nur mit Linux gearbeitet. Alle Technicker nutzen dabei die Linux-Distributionen "Manjaro" und "Ubuntu".
 
-Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bis jetzt habe ich noch keine GIT-Umgebung selber aufgezogen und unterhalten.
+Mit Virtualisierung selber habe ich viel Erfahrung. In der Ausbildung als Supporter wuden mehrere VM's benötigt. Auch in der Arbeitswelt benötige ich nebst meiner Linux-Umgebung eine Windows-VM. Diese wird benötigt, wenn bei Kunden, welche meistens mit Windows arbeiten, Probleme auftreten und getestet/überprüft werden müssen.
 
-Mit Virtualisierung selber habe ich viel Erfahrung. In der Ausbildung als Supporter wuden mehrere VM's benötigt. Auch in der Arbeitswelt benötige ich nebst meiner Linux-Umgebung eine Windows-VM. Diese wird benötigt, wenn bei Kunden, welche meistens mit Windows arbeiten, Probleme auftreten und getestet/überprüft werden müssen. 
+Vagrant oder Docker habe ich bisher nicht gekannt. Somit habe ich noch keinerlei Erfahrung mit diesen Programmen.
+
+Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bis jetzt habe ich noch keine GIT-Umgebung selber aufgezogen und unterhalten.
