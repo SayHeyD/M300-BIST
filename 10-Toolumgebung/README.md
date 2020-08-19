@@ -18,7 +18,7 @@ WireGuard ist für praktisch alle Betriebssysteme verfügbar und deshalb sehr be
 
 ## VSCode
 
-VisualStudio Code und git hatten wir ebenfalls schon auf unseren Geräten installiert und eingerichtet.
+[VisualStudio Code](https://code.visualstudio.com/) und git hatten wir ebenfalls schon auf unseren Geräten installiert und eingerichtet.
 
 <img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2011.15.18.png" alt="VSCode download Page" width="600px">
 
