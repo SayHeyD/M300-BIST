@@ -37,9 +37,11 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-### Vagrant Befehle
+Dieses File setzt einen Nginx Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload``` aktualisieren.
 
-## Persönlicher Wissensstand
+### Vagrant Befehle (K2)
+
+## Persönlicher Wissensstand (K2)
 
 ### David 
 
