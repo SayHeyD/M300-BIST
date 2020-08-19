@@ -20,17 +20,31 @@ Das git-cli ist für das heruterladen von projekten auf server unabdingbar, da m
 
 Um zu testen ob Virtualbox und Vagrant richtig installiert wurden, haben wir auf dem TBZ Cloud Server ein Vagrantfile heruntergeladen das zum Testen dient. Dieses ist im Verzeichnis ```~/VMs/VagrantTestVm``` des users ```ubuntu``` zu finden.
 
-In dem File steht folgendes:
+[In dem File]() steht folgendes (ohne Kommentare):
+
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
 
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y apache2
+    apt-get install -y apache2 lynx
   SHELL
 end
 ```
+
+Vagrant erstellt anhand von diesem File eine Virtuelle Maschiene und für die Commands aus die im Bereich ```config.vm.provision``` angegeben sind.
+
+Installierte Programme:
+
+* lynx | Command-Line Internet Browser
+* apache2 | Web-Server
+
+Nachdem das File in einem eigenen Ordner angelegt wurde können wir nach der Installation von Vagrant das Stup testen, in dem wir das erstellen der VM mit ```vagrant up --provider=virtualbox``` starten.
+
+Sobald der Befehl fertig ist können wir mit ```vagrant ssh``` auf die VM zugreifen.
+
+Um zu testen ob der Web-Server richtig funktioniert, rufen wir mit ```lynx 127.0.0.1``` die lokale Website auf. Nun sollten wir in Textform die Standard-Website von Apache2 sehen. Falls wir hier eine Fehlermeldung bekommen, können wir mit ```sudo service apache2 status``` überprüfen ob der Webserver läuft. Bei weiteren Problemen würde man dann auf die Logs zugreifen.
 
 # Eigene Vagrant Services (K2)
 
