@@ -24,6 +24,8 @@ Vagrant ist ein Tool zur Automtisierung für das Aufsetzen von VMs. So kann man 
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/bionic64"
 
+    config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "0.0.0.0"
+
     config.vm.synced_folder "./nginx-config", "/etc/nginx"
 
     config.vm.provider "virtualbox" do |vb|
