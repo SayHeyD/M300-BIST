@@ -20,4 +20,4 @@ Ich habe in der Freizeit seit dem ersten Lehrjahr angefangen Hobby-mässig zu pr
 
 Mit Systemsicherheit habe ich mich erst neulich wirklich befasst da wir mehrere Module und ÜKs zu dem Thema hatten. Hier haben wir die Abhärtung von Systemen, den Angriff von Systemen und den Ablauf der Angriffe angeschaut. Ebenso haben wir uns damit befasst was zu tun ist wenn vorgesetzte Sicherheitsmassnahmen nicht billigen.
 
-Mit Virtualisierung habe ich auch schon einiges gemacht. In der Arbeit haben wir SUpport VMs damit wir ohne Probleme mehrere Versionen der gleichen Software installiert haben können. In den Modulen und ÜKs haben wir auch öfters mit 
+Mit Virtualisierung habe ich auch schon einiges gemacht. In der Arbeit haben wir SUpport VMs damit wir ohne Probleme mehrere Versionen der gleichen Software installiert haben können. In den Modulen und ÜKs haben wir auch öfters mit VMs gearbeitet da dies die Installation von Betriebssystemen und Servern vereinfacht. Ebenso habe ich privat einmal [Proxmox](https://www.proxmox.com/de/) aufgesetzt und ausgetestet.
