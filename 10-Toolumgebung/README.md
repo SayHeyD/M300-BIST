@@ -22,7 +22,11 @@ WireGuard ist für praktisch alle Betriebssysteme verfügbar und deshalb sehr be
 
 <img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2011.15.18.png" alt="VSCode download Page" width="600px">
 
-VSCode ist eine OPen-Source IDE (Integrated development environment) welche viele Extensions und eine grosse Community bietet. VSCode ist ebenfalls für MacOS, Linux und Windows verfügbar.
+VSCode ist eine OPen-Source IDE (Integrated development environment) welche viele Extensions und eine grosse Community bietet. VSCode ist für folgende Betriebssysteme verfügbar:
+
+* MacOS
+* Linux 
+* Windows
 
 
 
