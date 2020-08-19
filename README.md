@@ -10,7 +10,7 @@ Hierfür müssen wir jedoch WireGuard installieren und einrichten.
 
 Wireguard kann auf MacOS direkt aus den AppStore installiert werden.
 
-<img src="https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.13.22.png" alt="WireGuard AppStore Page" width="300px">
+<img src="https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.13.22.png" alt="WireGuard AppStore Page" width="600px">
 
 VisualStudio-Code und Git hatte ich bereits auf meinem Gerät installiert.
 Ebenfalls habe ich schon einen SSH-Key generiert und deshalb diesen Schritt auch übersprungen.
@@ -19,5 +19,5 @@ Ebenfalls habe ich schon einen SSH-Key generiert und deshalb diesen Schritt auch
 
 Da ich in der Freizeit programmiere habe ich schon seit längerer Zeit einen GitHub und GitLab Account.
 
-![GitHub Profile Screenshot](https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.06.45.png | width=100)
+<img src="https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.06.45.png" alt="WireGuard AppStore Page" width="300px">
 
