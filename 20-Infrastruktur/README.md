@@ -55,9 +55,21 @@ Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache S
 | Nginx | 192.168.90.2 |
 | Apache | 192.168.90.3 |
 
-### Sicherheit des Systems (K2)
+In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
 ### Vagrant Befehle (K2)
+
+## Markdown editor (K2)
+
+Wir haben uns beim Markdown editor für Visual Studio Code und die GitHub Weboberfläche entschieden.
+
+VSCode benutzen wir da es eine Vielzahl an Erweiterungen gibt, welche uns auch ermöglichen im gelichen Editor z.B. Vagrant & Docker-Files zu bearbeiten.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.09.04.png" alt="VSCode split window" width="600px">
+
+Die Weboberfläche von GitHub wird auch zum schreiben der Markdown dokumentationen oder kurzen änderungen in allen Dateien verwendet, da dort dann auch alles direkt auf der remote origin repo verfügbar ist.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.09.04.png" alt="VSCode split window" width="600px">
 
 ## Persönlicher Wissensstand (K2)
 
