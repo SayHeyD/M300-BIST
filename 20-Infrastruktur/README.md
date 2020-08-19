@@ -87,7 +87,7 @@ Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache S
 
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
-### Vagrant Befehle
+### Vagrant Befehle (K2)
 | Vagrant Befehl| Funktionsbeschreibung |
 | ------------- |-----------------------|
 |      up       |  Startet die VM       |
