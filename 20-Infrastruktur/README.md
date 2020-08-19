@@ -87,7 +87,26 @@ Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache S
 
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
-### Vagrant Befehle (K2)
+### Vagrant Befehle
+| Vagrant Befehl| Funktionsbeschreibung |
+| ------------- |-----------------------|
+|      up       |  Startet die VM       |
+|     halt      |  Schaltet die VM aus  |
+|     init      |  Erstellt ein neues   |      
+|               |  Vagrantfile          |
+|   Validate    |  Validiert das        |
+|               |    Vagrantfile        |
+|     ssh       |  Mit der VM per       |
+|               |  SSH verbinden        |
+|    reload     | Neustart der VM mit   |
+|               | mit neuer Vagrantfile |
+|               |     konfiguration     |
+|    suspend    |  haltet die VM        |
+|    resume     | Startet eine gehaltene|
+|               |          VM           |
+|    destroy    | Zerstört eine VM      |
+|    
+
 
 ## Markdown editor (K2)
 
@@ -101,7 +120,8 @@ Die Weboberfläche von GitHub wird auch zum schreiben der Markdown dokumentation
 
 <img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.17.36.png" alt="GitHub Editor" width="600px">
 
-## Persönlicher Wissensstand (K2)
+
+## Persönlicher Wissensstand
 
 ### David 
 
