@@ -4,7 +4,7 @@ Wir haben uns dazu entschieden, das Modul in der TBZ-Cloud umzusetzen. Deshalb h
 
 Hierfür müssen wir jedoch WireGuard installieren und einrichten.
 
-## Wireguard
+## Wireguard (K1)
 
 Wireguard kann auf MacOS direkt aus den AppStore installiert werden.
 
@@ -16,7 +16,7 @@ Für Windows kann man WireGuard auch von ihrer [Homepage](https://www.wireguard.
 
 WireGuard ist für praktisch alle Betriebssysteme verfügbar und deshalb sehr beliebt.
 
-## VSCode
+## VSCode (K1)
 
 [VisualStudio Code](https://code.visualstudio.com/) und git hatten wir ebenfalls schon auf unseren Geräten installiert und eingerichtet.
 
@@ -28,7 +28,7 @@ VSCode ist eine OPen-Source IDE (Integrated development environment) welche viel
 * Linux 
 * Windows
 
-## Git-CLI
+## Git-CLI (K1)
 
 Das Git-CLI ist ein Command line Tool um mit der Versionsverwaltungsoftware Git arbeiten zu können. Auf den meisten Betriebssystemen muss Git noch isntalliert werden, jedoch ist git auf manchen Linux-distributionen bereits vorhanden.
 
