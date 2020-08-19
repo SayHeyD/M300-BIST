@@ -8,11 +8,11 @@ Hierfür müssen wir jedoch WireGuard installieren und einrichten.
 
 Wireguard kann auf MacOS direkt aus den AppStore installiert werden.
 
-<img src="https://github.com/SayHeyD/M300-LB2/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.13.22.png" alt="WireGuard AppStore Page" width="600px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.13.22.png" alt="WireGuard AppStore Page" width="600px">
 
 Für Windows kann man WireGuard auch von ihrer [Homepage](https://www.wireguard.com/) herunterladen.
  
-<img src="https://github.com/SayHeyD/M300-LB2/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.51.48.png" alt="WireGuard AppStore Page" width="600px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.51.48.png" alt="WireGuard AppStore Page" width="600px">
 
 WireGuard ist für proaktisch alle 
 
