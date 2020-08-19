@@ -37,8 +37,8 @@ Vagrant erstellt anhand von diesem File eine Virtuelle Maschiene und für die Co
 
 Installierte Programme:
 
-* lynx | Command-Line Internet Browser
-* apache2 | Web-Server
+* [lynx](https://lynx.browser.org/) | Command-Line Internet Browser
+* [apache2](https://httpd.apache.org/) | Web-Server
 
 Nachdem das File in einem eigenen Ordner angelegt wurde können wir nach der Installation von Vagrant das Stup testen, in dem wir das erstellen der VM mit ```vagrant up --provider=virtualbox``` starten.
 
@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Dieses File setzt einen Nginx Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload --provision``` aktualisieren.
+Dieses File setzt einen [Nginx](https://www.nginx.com/) Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload --provision``` aktualisieren.
 
 Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache Server installiert. Der Host-Port 8080 wird auf Port 80 des Reverse-Proxies weitergeleitet. Ansonsten sind die Nginx und Apache VMs in ihrem eigenen virtuellen Netzwerk.
 
