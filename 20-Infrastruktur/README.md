@@ -26,6 +26,8 @@ Vagrant.configure("2") do |config|
 
     config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "0.0.0.0"
 
+    config.vm.network "private_network", ip: "192.168.90.2"
+
     config.vm.synced_folder "./nginx-config", "/etc/nginx"
 
     config.vm.provider "virtualbox" do |vb|
@@ -35,11 +37,25 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: <<-SHELL
         apt-get update
         apt-get install -y nginx
+        service nginx restart
     SHELL
 end
 ```
 
-Dieses File setzt einen Nginx Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload``` aktualisieren.
+Dieses File setzt einen Nginx Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload --provision``` aktualisieren.
+
+Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache Server installiert. Der Host-Port 8080 wird auf Port 80 des Reverse-Proxies weitergeleitet. Ansonsten sind die Nginx und Apache VMs in ihrem eigenen virtuellen Netzwerk.
+
+#### Host-Only Netzwerk
+
+| Bezeichnung | Daten |
+|-------------|-------|
+| Netz-ID | 192.168.90.0 |
+| Subnet | 255.255.255.0 |
+| Nginx | 192.168.90.2 |
+| Apache | 192.168.90.3 |
+
+### Sicherheit des Systems (K2)
 
 ### Vagrant Befehle (K2)
 
