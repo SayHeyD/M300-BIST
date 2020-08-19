@@ -1,16 +1,16 @@
-# M300 LB2 Docampo
+# M300 LB2 Lippuner, [Name], Docampo
 
 ## Installation der benötigten Tools
 
-Ich habe mich dazu entschieden, das Modul in der TBZ-Cloud umzusetzen. Deshalb habe ich VirtualBox und Vagrant nicht auf meinem lokel Gerät installeirt.
+Wir haben uns dazu entschieden, das Modul in der TBZ-Cloud umzusetzen. Deshalb haben wir Vagrant und VirtualBox nicht installiert.
 
-Hierfür musste ich jedoch WireGuard installieren und einrichten.
+Hierfür müssen wir jedoch WireGuard installieren und einrichten.
 
 ### Wireguard
 
 Wireguard kann auf MacOS direkt aus den AppStore installiert werden.
 
-
+![WireGuard AppStore Page](https://github.com/SayHeyD/M300-LB2/blob/master/Bildschirmfoto%202020-08-19%20um%2010.13.22.png)
 
 VisualStudio-Code und Git hatte ich bereits auf meinem Gerät installiert.
 Ebenfalls habe ich schon einen SSH-Key generiert und deshalb diesen Schritt auch übersprungen.
