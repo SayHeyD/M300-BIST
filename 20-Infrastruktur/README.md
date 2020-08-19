@@ -16,13 +16,47 @@ Das git-cli ist für das heruterladen von projekten auf server unabdingbar, da m
 
 <img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2011.44.38.png" alt="Git-CLI in use" width="400px">
 
-# Vagrant (K2)
+# Vorhandene Vagrant Instanz (K2)
+
+Um zu testen ob Virtualbox und Vagrant richtig installiert wurden, haben wir auf dem TBZ Cloud Server ein Vagrantfile heruntergeladen das zum Testen dient. Dieses ist im Verzeichnis ```~/VMs/VagrantTestVm``` des users ```ubuntu``` zu finden.
+
+[In dem File]() steht folgendes (ohne Kommentare):
+
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y apache2 lynx
+  SHELL
+end
+```
+
+Vagrant erstellt anhand von diesem File eine Virtuelle Maschiene und für die Commands aus die im Bereich ```config.vm.provision``` angegeben sind.
+
+Installierte Programme:
+
+* [lynx](https://lynx.browser.org/) | Command-Line Internet Browser
+* [apache2](https://httpd.apache.org/) | Web-Server
+
+Nachdem das File in einem eigenen Ordner angelegt wurde können wir nach der Installation von Vagrant das Stup testen, in dem wir das erstellen der VM mit ```vagrant up --provider=virtualbox``` starten.
+
+Sobald der Befehl fertig ist können wir mit ```vagrant ssh``` auf die VM zugreifen.
+
+Um zu testen ob der Web-Server richtig funktioniert, rufen wir mit ```lynx 127.0.0.1``` die lokale Website auf. Nun sollten wir in Textform die Standard-Website von Apache2 sehen. Falls wir hier eine Fehlermeldung bekommen, können wir mit ```sudo service apache2 status``` überprüfen ob der Webserver läuft. Bei weiteren Problemen würde man dann auf die Logs zugreifen.
+
+# Eigene Vagrant Services (K2)
 
 Vagrant ist ein Tool zur Automtisierung für das Aufsetzen von VMs. So kann man zum Beispiel eine VM aufsetzen, auf der direkt Nginx / apache oder andere services installiert werden. Ein Vagrant-File sieht in etwa so aus:
 
 ```
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/bionic64"
+
+    config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "0.0.0.0"
+
+    config.vm.network "private_network", ip: "192.168.90.2"
 
     config.vm.synced_folder "./nginx-config", "/etc/nginx"
 
@@ -33,9 +67,25 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: <<-SHELL
         apt-get update
         apt-get install -y nginx
+        service nginx restart
     SHELL
 end
 ```
+
+Dieses File setzt einen [Nginx](https://www.nginx.com/) Reverse-Proxy auf und verbindet den lokalen ordner "./nginx-config" mit den ordner "./etc/nginx" auf der VM. Somit kann man die konfiguration von nginx bearbeiten uach wenn die VM schon läuft. Die Konfiguration kann nach veränderung mit ```vagrant reload --provision``` aktualisieren.
+
+Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache Server installiert. Der Host-Port 8080 wird auf Port 80 des Reverse-Proxies weitergeleitet. Ansonsten sind die Nginx und Apache VMs in ihrem eigenen virtuellen Netzwerk.
+
+#### Host-Only Netzwerk
+
+| Bezeichnung | Daten |
+|-------------|-------|
+| Netz-ID | 192.168.90.0 |
+| Subnet | 255.255.255.0 |
+| Nginx | 192.168.90.2 |
+| Apache | 192.168.90.3 |
+
+In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
 ### Vagrant Befehle
 | Vagrant Befehl| Funktionsbeschreibung |
@@ -56,6 +106,20 @@ end
 |               |          VM           |
 |    destroy    | Zerstört eine VM      |
 |    
+
+
+## Markdown editor (K2)
+
+Wir haben uns beim Markdown editor für Visual Studio Code und die GitHub Weboberfläche entschieden.
+
+VSCode benutzen wir da es eine Vielzahl an Erweiterungen gibt, welche uns auch ermöglichen im gelichen Editor z.B. Vagrant & Docker-Files zu bearbeiten.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.09.04.png" alt="VSCode split window" width="600px">
+
+Die Weboberfläche von GitHub wird auch zum schreiben der Markdown dokumentationen oder kurzen änderungen in allen Dateien verwendet, da dort dann auch alles direkt auf der remote origin repo verfügbar ist.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.17.36.png" alt="GitHub Editor" width="600px">
+
 
 ## Persönlicher Wissensstand
 
