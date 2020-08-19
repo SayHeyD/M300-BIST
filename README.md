@@ -7,3 +7,9 @@ Ich habe mich dazu entschieden, das Modul in der TBZ-Cloud umzusetzen. Deshalb h
 VisualStudio-Code und Git hatte ich bereits auf meinem Gerät installiert.
 Ebenfalls habe ich schon einen SSH-Key generiert und deshalb diesen Schritt auch übersprungen.
 
+## Eigene Lernumgebung
+
+Da ich in der Freizeit programmiere habe ich schon seit längerer Zeit einen GitHub und GitLab Account.
+
+
+
