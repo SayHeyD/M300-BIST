@@ -12,10 +12,17 @@ Wireguard kann auf MacOS direkt aus den AppStore installiert werden.
 
 Für Windows kann man WireGuard auch von ihrer [Homepage](https://www.wireguard.com/) herunterladen.
  
-<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.51.48.png" alt="WireGuard AppStore Page" width="600px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2010.51.48.png" alt="WireGuard Download Page" width="600px">
 
-WireGuard ist für proaktisch alle 
+WireGuard ist für praktisch alle Betriebssysteme verfügbar und deshalb sehr beliebt.
 
 ## VSCode
 
 VisualStudio Code und git hatten wir ebenfalls schon auf unseren Geräten installiert und eingerichtet.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2011.15.18.png" alt="VSCode download Page" width="600px">
+
+VSCode ist eine OPen-Source IDE (Integrated development environment) welche viele Extensions und eine grosse Community bietet. VSCode ist ebenfalls für MacOS, Linux und Windows verfügbar.
+
+
+
