@@ -1,4 +1,4 @@
-# M300 Lippuner, [Name], Docampo
+# M300 Lippuner, Zellweger, Docampo
 
 Hier ist die Dokumentation für das Modul 300 abgelegt. Alle Aufgaben werden in dieser Repository dokumentiert.
 
