@@ -28,5 +28,13 @@ VSCode ist eine OPen-Source IDE (Integrated development environment) welche viel
 * Linux 
 * Windows
 
+## Git-CLI
+
+Das Git-CLI ist ein Command line Tool um mit der Versionsverwaltungsoftware Git arbeiten zu können. Auf den meisten Betriebssystemen muss Git noch isntalliert werden, jedoch ist git auf manchen Linux-distributionen bereits vorhanden.
+
+Git ist für praktisch jedes Betriebssystem verfügbar, [hier heruterladen](https://git-scm.com/downloads).
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2011.28.25.png" alt="VSCode download Page" width="600px">
+
 
 
