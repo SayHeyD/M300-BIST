@@ -88,23 +88,17 @@ Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache S
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
 ### Vagrant Befehle (K2)
-| Vagrant Befehl| Funktionsbeschreibung |
-| ------------- |-----------------------|
-|      up       |  Startet die VM       |
-|     halt      |  Schaltet die VM aus  |
-|     init      |  Erstellt ein neues   |      
-|               |  Vagrantfile          |
-|   Validate    |  Validiert das        |
-|               |    Vagrantfile        |
-|     ssh       |  Mit der VM per       |
-|               |  SSH verbinden        |
-|    reload     | Neustart der VM mit   |
-|               | mit neuer Vagrantfile |
-|               |     konfiguration     |
-|    suspend    |  haltet die VM        |
-|    resume     | Startet eine gehaltene|
-|               |          VM           |
-|    destroy    | Zerstört eine VM      |
+| Vagrant Befehl| Funktionsbeschreibung           |
+| ------------- |---------------------------------|
+|      up       |  Startet die VM                 |
+|     halt      |  Schaltet die VM aus            |
+|     init      |  Erstellt ein neues Vagrantfile |      
+|   Validate    |  Validiert das Vagrantfile      |
+|     ssh       |  Mit der VM per SSH verbinden   |
+|    suspend    |  haltet die VM                  |
+|    resume     | Startet eine gehaltene          |
+|               |          VM                     |
+|    destroy    | Zerstört eine VM                |
 |    
 
 
