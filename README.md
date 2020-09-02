@@ -45,6 +45,19 @@ Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bi
 
 ### Andi
 
+Nun Verstehe ich den Umgang mit Vagrant und konnte erfolgreich mit "Vagrantfile" VM's erstellen. Bin erstaunt, wie effizient das Tool funktioniert. Jedoch weiss ich nicht, ob ich das Tool in naher Zukunft in meinem Arbeitsumfeld verwenden werde.
+
+Mit Wireguard konnte ich eine Tunnelverbindung zu der TBZ Cloud erstellen. Mit Wireguard hatte
+ich zuvor nichts zu tun und bin erstaunt, wie gut das tool funktioniert.
+
+Auf der TBZ Cloud habe ich erfolgreich ein Apache Web-Server erstellt und den Zugriff bis auf ein paar IP Adressen beschränkt.
+
+Überzeugt hat mich Github. Finde es eine sehr gute Methode eine Dokumentation zu führen. Nun benutze ich Github
+auch Privat um gewisse Anleitungen zu festzuhalten.
+
+Zusätzlich habe ich gelernt die vorhandene Firewall von Ubuntu zu nutzen und soweit zu konfigurieren, dass von
+gewissen IP Adressen zugegriffen werden kann. Ich denke dass kann ich in Zukunft gut gebrauchen.
+
 ### Moritz
 
 ### David
