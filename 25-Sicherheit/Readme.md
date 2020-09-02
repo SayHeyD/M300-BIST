@@ -3,7 +3,7 @@
 Hier ist alles zur absicherung der Lernumgebung dokumentiert. Dazu gehören Reverse-Proxy konfiguration, Firewallkonfiguration, Benutzer & Rechte sowie der Netzwerkplan.
 
 
-## Benutzer und Rechtvergabe
+## Benutzer und Rechtvergabe (K4)
 
 | Benutzer | verwendung|
 |   ------ |------- |
@@ -47,7 +47,7 @@ So können die rechte für die verbinddung schnell entzogen werden im falle das 
 
 
 
-## Firewall
+## Firewall (K4)
 
 Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu benutzen ist und schon auf ubuntu vorinstalliert ist.
 
