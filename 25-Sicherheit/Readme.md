@@ -96,6 +96,16 @@ Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu ben
 
 ### Firewall von 10.1.31.14
 
+*Status*: aktiv
+*Logging*: on(low)
+*Default*: deny (incoming), allow (outgoing), disabled (routed)
+
+| Port | Action | From |
+| ----- | ----- | ----- |
+| 22 | ALLOW | 10.1.31.37 |
+| 22 | ALLOW | 10.1.31.50 |
+| 22 | ALLOW | 10.1.31.44 |
+
 ### Firewall von 10.1.31.20
 
 *Status*: aktiv
