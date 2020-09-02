@@ -45,4 +45,14 @@ Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bi
 
 ### Andi
 
+### Moritz
 
+### David
+
+Ich habe in diesem Modul zum ersten mal mit Vagrant und der TBZ Cloud gearbeitet. Ebenso habe ich zum ersten mal Wireguard benutzt und bin davon sehr beeindruckt, allerdings habe ich auch nur gutes davon gehört. Das Anlegen von Verbindungen per Wireguard, wird mir denke ich am meisten bringen, da ich nicht denke das ich in Zukunft mit Vagrant abrbeiten werde. Wenn ich etwas von diesem Modul mitnehmen kann, dann wird das wahrscheinlich mit dem Container-Teil kommen, daher ich mir denke, das ich in Zukunft damit in Kontakt kommen werde.
+
+Was ich gelernt habe (nützlichstes oben):
+
+1. Wireguard konfigurieren & installieren
+2. Vagrant konfigurieren und handhaben
+3. MIt der TBZ Cloud arbeiten
