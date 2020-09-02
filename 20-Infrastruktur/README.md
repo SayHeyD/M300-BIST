@@ -225,24 +225,6 @@ ngrok http 80
 
 > Falls ngrok noch nicht installiert ist dann: [Ngrok installieren](https://snapcraft.io/install/ngrok/ubuntu)
 
-Um zu verhindern, dass jeder mit SSH verbinden können, geben wir den Zugriff für bestimmte IP's frei
-
-5. Wir erlauben auf der Firewall gewissen IP's den Zugriff via SSH:
-```
-sudo ufw allow from 10.1.31.50 to any port 22
-```
-
-6. Firewall Regel aktivieren:
-```
- sudo ufw enable
-```
-
-7. Status überprüfen
-```
- sudo ufw status
-```
-
-
 ## Markdown editor (K2)
 
 Wir haben uns beim Markdown editor für Visual Studio Code und die GitHub Weboberfläche entschieden.
