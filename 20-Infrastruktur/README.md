@@ -92,18 +92,12 @@ In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 | ------------- |-----------------------|
 |      up       |  Startet die VM       |
 |     halt      |  Schaltet die VM aus  |
-|     init      |  Erstellt ein neues   |      
-|               |  Vagrantfile          |
-|   Validate    |  Validiert das        |
-|               |    Vagrantfile        |
-|     ssh       |  Mit der VM per       |
-|               |  SSH verbinden        |
-|    reload     | Neustart der VM mit   |
-|               | mit neuer Vagrantfile |
-|               |     konfiguration     |
+|     init      |  Erstellt ein neues Vagrantfile |
+|   Validate    |  Validiert das Vagrantfile |
+|     ssh       |  Mit der VM per SSH verbinden |
+|    reload     | Neustart der VM mit mit neuer Vagrantfile konfiguration |
 |    suspend    |  haltet die VM        |
-|    resume     | Startet eine gehaltene|
-|               |          VM           |
+|    resume     | Startet eine gehaltene VM |
 |    destroy    | Zerstört eine VM      |
 |    
 
