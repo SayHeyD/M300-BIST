@@ -99,7 +99,6 @@ In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 |    suspend    |  haltet die VM        |
 |    resume     | Startet eine gehaltene VM |
 |    destroy    | Zerstört eine VM      |
-|    
 
 
 ## Markdown editor (K2)
