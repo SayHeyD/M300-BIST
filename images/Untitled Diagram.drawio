@@ -1,0 +1,27 @@
+<mxfile host="app.diagrams.net" modified="2020-08-19T13:34:31.424Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36" etag="tNYbnGnnNk7zfhKBQ3Zl" version="13.6.3" type="github">
+  <diagram id="24OxG5rsEx3X1URYMK6x" name="Page-1">
+    <mxGraphModel dx="1221" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LBIv88BEuG6GvdXVQ1Nf-4" value="Port Mapping Port 8080:80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;dashed=1;shape=link;" edge="1" parent="1" source="LBIv88BEuG6GvdXVQ1Nf-1" target="uaIfMLwkKKj6FyHyqb4Y-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="415" y="143" />
+              <mxPoint x="415" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LBIv88BEuG6GvdXVQ1Nf-1" value="&lt;font style=&quot;font-size: 15px&quot;&gt;Hoster-System: TBZ Cloud&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="10" y="70" width="290" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="uaIfMLwkKKj6FyHyqb4Y-1" value="NGIX-Reverse-Proxy&lt;br&gt;IP: 10.1.31.7" style="shape=cylinder2;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="530" y="100" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LBIv88BEuG6GvdXVQ1Nf-2" value="Apache2-Web" style="shape=cylinder2;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="530" y="310" width="60" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
