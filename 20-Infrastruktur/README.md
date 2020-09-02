@@ -29,6 +29,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y apache2 lynx
+    ufw allow from 10.0.2.2 to any port 22
+    ufw allow from 192.168.90.2 to any port 80
+    ufw enable
   SHELL
 end
 ```
@@ -70,6 +73,9 @@ Vagrant.configure("2") do |config|
         apt-get update
         apt-get install -y nginx
         service nginx restart
+        ufw allow from 10.0.2.2 to any port 22
+        ufw allow 80
+        ufw enable
     SHELL
 end
 ```
@@ -121,6 +127,9 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: <<-SHELL
         apt-get update
         apt-get install -y apache2 lynx
+        ufw allow from 10.0.2.2 to any port 22
+        ufw allow from 192.168.90.2 to any port 80
+        ufw enable
         SHELL
     end
 ```
