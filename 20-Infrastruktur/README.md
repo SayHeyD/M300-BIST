@@ -158,7 +158,7 @@ Mit folgendem Befehl startet man die generation eines SSH-Keypairs. Die Keygen-r
 
 ```ssh-keygen -t rsa```
 
-<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2008.31.29.png" alt="SSH-Keygen generation" width="400px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2008.31.29.png" alt="SSH-Keygen generation" width="600px">
 
 ### Windows
 
