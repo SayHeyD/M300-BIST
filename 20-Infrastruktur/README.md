@@ -127,3 +127,25 @@ Mit Virtualisierung selber habe ich viel Erfahrung. In der Ausbildung als Suppor
 Vagrant oder Docker habe ich bisher nicht gekannt. Somit habe ich noch keinerlei Erfahrung mit diesen Programmen.
 
 Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bis jetzt habe ich noch keine GIT-Umgebung selber aufgezogen und unterhalten.
+
+# SSH-Keys (K4)
+
+## Wie funktioniert ein SSH-Key
+
+SSH-Keys werden verwendet um die Verbindung zwischen einem SSH-Client und SSH-Server zusätzlich abzusichern oder um automatisierungsprozesse zu gewährleisten. Mit einem SSH-Key benötigten man nicht unbedingt ein Passwort um sich als Benutzer auf einem Server anzumelden, diese Option wird vorwiegend nur bei automatisierungen verwendet, dort aber auch oft durch andere Möglichkeiten ersetzt, da man nie gerne einen nicht passwortgeschützten Zugang zu einem Server hat. Die meisten Nutzer die einen SSH-Key verwenden, haben diesen ebenfalls Passwortgeschützt. Vorteil hierbei ist, dass man seinen Public-key auf alle Server hochladen kann, auf welche man Zugriff braucht und sich nun überall gesichert mit dem gleichen Passwort anmleden kann. Hierbei muss man beachten, dass das Passwort nicht für den Benutzer auf dem Server ist, das Passswort wird verwendet um den SSH-Key zu entschlüsseln. Der Key wiederum erlaubt es einem danach ohne Passwort bei einem Nutzer anzumelden.
+
+## Wie Generiert man einen SSH-Key
+
+### MacOS & Linux (Terminal)
+
+Um einen SSH-Key auf MacOS oder Linux zu generieren, benötigt man das ssh-keygen tool, dieses sollte aber schon auf den meisten Distributionen vorinstalliert sein.
+
+Mit folgendem Befehl startet man die generation eines SSH-Keypairs. Die Keygen-routine fragt nach allen erforderlichen angaben, wie zum Beispiel Speicherort und Passwort. Wenn man den SSH-Key nicht für automatisierung verwendet wird stark empfohlen ein Passwort einzurichten.
+
+```ssh-keygen -t rsa```
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2008.31.29.png" alt="SSH-Keygen generation" width="400px">
+
+### Windows
+
+Um auf Windows einen SSH-Key zu generien gibt es verschiedene Möglichkeiten. Wenn man zum Beispiel git bash installiert hat, kann man den Key wie auf Linux erstellen. Eine andere Alternative ist, den Key von PuttyGen generiern zu lassen. [Putty](https://www.putty.org/) ist einer der beliebtesten SSH-Clients für Windows und liefert ein eigenes Programm zum generieren des SSH-Keys. Hierzu findet man hier eine gute [Anleitung](https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows).
