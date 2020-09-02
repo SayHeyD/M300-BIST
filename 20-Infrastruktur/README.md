@@ -141,11 +141,11 @@ Mit diesem Test soll überprüft werden ob der Reverse-Proxy korrekt eingerichte
 
 Hierzu verbindet man sich zuerst per Wireguard.
 
-<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%20020-09-02%20um%2009.44.44.png" alt="GitHub Collaborators" width="200px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2009.44.44.png" alt="WireGuard Menu" width="200px">
 
 Danach kann man im Browser über die IP des Servers un den Port 8080 auf den Server zugreifen.
 
-<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2009.47.09.png" alt="GitHub Collaborators" width="600px">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2009.47.09.png" alt="WebContent" width="600px">
 
 Falls man nun eine Apache2 Default seite sieht, ist man erfolgreich über den Nginx Proxy auf den Reverse-Proxy verbunden.
 
