@@ -190,7 +190,7 @@ Daher Lynx keine Fehlermeldung für Timeouts ausgibt, nehmen wir nach 15 sekunde
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
 ## Netzwerkplan
-<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/netzwerk.png" alt="Netzwerkplan">
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/netzwerkplan.png" alt="Netzwerkplan">
 
 ### Vagrant Befehle (K3)
 | Vagrant Befehl| Funktionsbeschreibung |
