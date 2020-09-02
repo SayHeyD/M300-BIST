@@ -39,3 +39,8 @@ Vagrant oder Docker habe ich bisher nicht gekannt. Somit habe ich noch keinerlei
 
 Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bis jetzt habe ich noch keine GIT-Umgebung selber aufgezogen und unterhalten.
 
+## Persönliche Lernentwicklung
+
+### Andi
+
+
