@@ -220,7 +220,7 @@ Um zu verhindern, dass jeder mit SSH verbinden k√∂nnen, geben wir den Zugriff f√
 
 5. Wir erlauben auf der Firewall gewissen IP's den Zugriff via SSH:
 ```
-sudo ufw allow from 10.1.31.50 to any port 22
+sudo ufw allow from <DeineIP> to any port 22
 ```
 
 6. Firewall Regel aktivieren:
