@@ -12,6 +12,7 @@ Hier ist die Dokumentation für das Modul 300 abgelegt. Alle Aufgaben werden in 
 
 * Server-David: [10.1.31.7](http://10.1.31.7) | [WireGuard Config](https://github.com/SayHeyD/M300-BIST/blob/master/wireguard_david.conf)
 * Server-Moritz: [10.1.31.14](http://10.1.31.14) | [WireGuard Config](https://github.com/SayHeyD/M300-BIST/blob/master/wireguard_moritz.conf)
+* Server-Andi: [10.1.31.20](http://10.1.31.20) | [WireGuard Config](https://github.com/SayHeyD/M300-BIST/blob/master/wireguard_andi.conf)
 
 ## Persönlicher Wissenstand
 
