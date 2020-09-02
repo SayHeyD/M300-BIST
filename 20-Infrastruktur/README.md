@@ -194,6 +194,46 @@ In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 |    destroy    | Zerstört eine VM      |
 
 
+## Apache Web-Server mit ngrok (K4)
+
+1. Wir befinden uns via ssh auf dem TBZ Cloud Server "10.1.31.20" und navigieren in folgendes Verzeichnis:
+```
+/etc/apache2/sites-available
+```
+> Wichtig ist, dass Apache Web-Server bereits konfiguriert ist. Anleitung [Apache Web-Server](https://github.com/SayHeyD/M300-BIST/tree/master/20-Infrastruktur#apache-vm-k3)
+
+2. Entsprechende Datei bearbeiten:
+```
+sudo vi 000-default.conf
+```
+
+3. "VirtualHost" von "80" zu "8080" wechseln und speichern.
+
+4. Mit folgendem Befehl wird ein direkter Tunnel durch die Firwall geöffnet. 
+```
+ngrok http 80
+```
+
+> Falls ngrok noch nicht installiert ist dann: [Ngrok installieren](https://snapcraft.io/install/ngrok/ubuntu)
+
+Um zu verhindern, dass jeder mit SSH verbinden können, geben wir den Zugriff für bestimmte IP's frei
+
+5. Wir erlauben auf der Firewall gewissen IP's den Zugriff via SSH:
+```
+sudo ufw allow from 10.1.31.50 to any port 22
+```
+
+6. Firewall Regel aktivieren:
+```
+ sudo ufw enable
+```
+
+7. Status überprüfen
+```
+ sudo ufw status
+```
+
+
 ## Markdown editor (K2)
 
 Wir haben uns beim Markdown editor für Visual Studio Code und die GitHub Weboberfläche entschieden.
