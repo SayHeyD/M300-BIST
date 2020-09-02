@@ -45,6 +45,23 @@ Daten werden nichtt manipuliert zwischen Geräten.
 Für zusätzliche sicherheit können auch anstatt Passwörter Public-Keys verwendet werden um sich am Server zu Authentifizieren.
 So können die rechte für die verbinddung schnell entzogen werden im falle das jemand diese nicht mehr haben sollte ohne das das Passwort geändert wird und neu abgelegt werden muss. 
 
+Um zu verhindern, dass jeder mit SSH verbinden können, geben wir den Zugriff für bestimmte IP's frei
+
+1. Wir erlauben auf der Firewall gewissen IP's den Zugriff via SSH:
+```
+sudo ufw allow from <DeineIP> to any port 22
+```
+
+2. Firewall Regel aktivieren:
+```
+ sudo ufw enable
+```
+
+3. Status überprüfen
+```
+ sudo ufw status
+```
+
 ### SSH-Keys auf dem Server hinzufügen und Passwortauthentifizierung ausschalten
 
 Wenn die SSH-Public-keys auf dem Server sind kann man die Passwortauthetifizierung ausschalten wodurch man die Sicherheit erneut erhöhen kann. Somit können nur noch neue Nutzer auf den Server zugreifen, wenn Ihr Key von einem Bereits authentifizierten USer hinzugefüht wird.
@@ -77,7 +94,6 @@ Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu ben
 * [Firewall von apache2-web auf 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-apache2-web-auf-101317)
 * [Firewall von nginx-reverse-proxy auf 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-nginx-reverse-proxy-auf-101317)
 * [Firewall von apache2-web auf 10.1.31.20](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-apache2-web-auf-1013120)
-
 
 ### Firewall von 10.1.31.7
 
