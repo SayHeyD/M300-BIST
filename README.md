@@ -6,6 +6,7 @@ Hier ist die Dokumentation für das Modul 300 abgelegt. Alle Aufgaben werden in 
 
 * [10 - Toolumgebung](https://github.com/SayHeyD/M300-BIST/tree/master/10-Toolumgebung)
 * [20 - Infrastruktur](https://github.com/SayHeyD/M300-BIST/tree/master/20-Infrastruktur)
+* [25 - Sicherheit](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit)
 
 ## Server IPs
 
