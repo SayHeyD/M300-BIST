@@ -45,7 +45,26 @@ Daten werden nichtt manipuliert zwischen Geräten.
 Für zusätzliche sicherheit können auch anstatt Passwörter Public-Keys verwendet werden um sich am Server zu Authentifizieren.
 So können die rechte für die verbinddung schnell entzogen werden im falle das jemand diese nicht mehr haben sollte ohne das das Passwort geändert wird und neu abgelegt werden muss. 
 
+### SSH-Keys auf dem Server hinzufügen und Passwortauthentifizierung ausschalten
 
+Wenn die SSH-Public-keys auf dem Server sind kann man die Passwortauthetifizierung ausschalten wodurch man die Sicherheit erneut erhöhen kann. Somit können nur noch neue Nutzer auf den Server zugreifen, wenn Ihr Key von einem Bereits authentifizierten USer hinzugefüht wird.
+
+Die SSH Public-keys können im File ```~/.ssh/authorized_keys``` hinzugefügt werden.
+
+Die Passwortauthentifizierung wird im File ```/etc/ssh/sshd_config``` ausgeschaltet werden.
+
+In dem File gibt es die Zeilen:
+```
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+```
+
+Hier ändert man die Zeile ```PasswordAuthentication yes``` auf ```PasswordAuthentication no```.
+
+Danach startet man den Service neu ```service ssh restart```.
+
+Nach dem Neustart können sich die Nutzer nicht mehr ohne SSH-Key anmelden.
 
 ## Firewall (K4)
 
