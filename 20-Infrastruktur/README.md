@@ -20,7 +20,7 @@ Das git-cli ist für das heruterladen von projekten auf server unabdingbar, da m
 
 Um zu testen ob Virtualbox und Vagrant richtig installiert wurden, haben wir auf dem TBZ Cloud Server ein Vagrantfile heruntergeladen das zum Testen dient. Dieses ist im Verzeichnis ```~/VMs/VagrantTestVm``` des users ```ubuntu``` zu finden.
 
-[In dem File]() steht folgendes (ohne Kommentare):
+[In dem File](https://github.com/SayHeyD/M300-BIST/blob/master/vagrant-files/vagrant-test/Vagrantfile) steht folgendes (ohne Kommentare):
 
 ```
 Vagrant.configure("2") do |config|
@@ -48,7 +48,9 @@ Um zu testen ob der Web-Server richtig funktioniert, rufen wir mit ```lynx 127.0
 
 # Eigene Vagrant Services (K2)
 
-Vagrant ist ein Tool zur Automtisierung für das Aufsetzen von VMs. So kann man zum Beispiel eine VM aufsetzen, auf der direkt Nginx / apache oder andere services installiert werden. Ein Vagrant-File sieht in etwa so aus:
+## Nginx VM (K4)
+
+Vagrant ist ein Tool zur Automtisierung für das Aufsetzen von VMs. So kann man zum Beispiel eine VM aufsetzen, auf der direkt Nginx / apache oder andere services installiert werden. Ein [Vagrantfile](https://github.com/SayHeyD/M300-BIST/blob/master/vagrant-files/nginx-reverse-proxy/Vagrantfile) sieht in etwa so aus:
 
 ```
 Vagrant.configure("2") do |config|
@@ -76,7 +78,98 @@ Dieses File setzt einen [Nginx](https://www.nginx.com/) Reverse-Proxy auf und ve
 
 Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache Server installiert. Der Host-Port 8080 wird auf Port 80 des Reverse-Proxies weitergeleitet. Ansonsten sind die Nginx und Apache VMs in ihrem eigenen virtuellen Netzwerk.
 
-#### Host-Only Netzwerk
+### Nginx konfiguration
+
+Hier ist die Konfiguration des Nginx Servers:
+
+```
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	location / {
+		proxy_pass http://192.168.90.3/$uri;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+	}
+}
+```
+
+## Apache VM (K3)
+
+Um den Reverse-Proxy richtig testen zu können haben wir noch einen Apache2 Server in einer anderen VM aufgesetzt.
+Das [Vagrantfile](https://github.com/SayHeyD/M300-BIST/blob/master/vagrant-files/apache2-web/Vagrantfile) sieht folgendermassen aus (ohne Kommentare):
+
+```
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/bionic64"
+  
+    config.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
+  
+    config.vm.network "private_network", ip: "192.168.90.3"
+  
+    config.vm.synced_folder "./web-root", "/var/www"
+    config.vm.synced_folder "./apache2-config", "/etc/apache2"
+  
+    config.vm.provider "virtualbox" do |vb|
+       vb.memory = "512"
+    end
+
+    config.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y apache2 lynx
+        SHELL
+    end
+```
+
+Hier wird im Host-Only Netzwerk der Apache2 Webserver auf dem Host 192.168.90.3:80 freigegeben, auf welchen nur vom internen Netzwerk zugegriffen werden kann. In diesem internen Netzwerk ist ebenfalls ein Nginx Reverse-proxy, welcher über den Port 8080 exposed ist.
+
+## Testfälle (K3)
+
+Hier sind die Testfälle zum überprüfen der Funktionalität des Internen Netzwerks und des Reverse-Proxies aufgelistet und dokumentiert.
+
+### Erlaubter Zugriff über Reverse-Proxy
+
+| Erwartets Ergebnis | Eingetroffenes Ergebnis |
+| ------------------ | ----------------------- |
+| Verbindung erfolgreich | Verbindung erfolgreich |
+
+Mit diesem Test soll überprüft werden ob der Reverse-Proxy korrekt eingerichtet ist und man wie darauf vorgesehen auch darauf zugreifen kann.
+
+Hierzu verbindet man sich zuerst per Wireguard.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%20020-09-02%20um%2009.44.44.png" alt="GitHub Collaborators" width="200px">
+
+Danach kann man im Browser über die IP des Servers un den Port 8080 auf den Server zugreifen.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2009.47.09.png" alt="GitHub Collaborators" width="600px">
+
+Falls man nun eine Apache2 Default seite sieht, ist man erfolgreich über den Nginx Proxy auf den Reverse-Proxy verbunden.
+
+### Unerlaubter Direkter Zugriff auf VM
+
+| Erwartets Ergebnis | Eingetroffenes Ergebnis |
+| ------------------ | ----------------------- |
+| Timeout | Timeout |
+
+Um zu testen ob man über den VM-Host (TBZ Cloud-Server) direkt auf den WEbserver zugreifen kann isntallieren wir das Programm [lynx](https://lynx.browser.org/). Lynx ist ein CLI Webbrowser für linux. Wenn wir per SSH auf den TBZ Cloud-Server verbunden sind können wir lynx installieren.
+
+```sudo apt install -y lynx```
+
+Nach der Installation von lynx könen wir versuchen auf die Website der VM zuzugrifen.
+
+Der Command um sich mit der Website zu verbinden: ```lynx 192.168.90.3```
+
+Nachdem wir den Befehl eingegeben haben können wir mit Enter bestätigen und danach sollten wir folgendes in der Konsole sehen.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-02%20um%2010.38.10.png" alt="GitHub Collaborators" width="600px">
+
+Daher Lynx keine Fehlermeldung für Timeouts ausgibt, nehmen wir nach 15 sekunden in dieser Ansicht an, dass die Website nicht direkt erreichbar ist.
+
+## Host-Only Netzwerk
 
 | Bezeichnung | Daten |
 |-------------|-------|
@@ -87,7 +180,7 @@ Auf dem Server ```10.1.31.7``` sind nun ein Nginx Reverse-Proxy und ein Apache S
 
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
-### Vagrant Befehle
+### Vagrant Befehle (K3)
 | Vagrant Befehl| Funktionsbeschreibung |
 | ------------- |-----------------------|
 |      up       |  Startet die VM       |
@@ -114,7 +207,7 @@ Die Weboberfläche von GitHub wird auch zum schreiben der Markdown dokumentation
 <img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-08-19%20um%2018.17.36.png" alt="GitHub Editor" width="600px">
 
 
-## Persönlicher Wissensstand
+## Persönlicher Wissensstand (K2)
 
 ### David 
 
