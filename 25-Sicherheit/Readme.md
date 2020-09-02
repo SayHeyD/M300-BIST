@@ -55,3 +55,11 @@ Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu ben
 | 80 | ALLOW | ANY |
 
 ### Firewall von apache2-web auf 10.1.31.20
+
+*Status*: aktiv
+*Logging*: on(low)
+*Default*: deny (incoming), allow (outgoing), disabled (routed)
+
+| Port | Action | From |
+| ----- | ----- | ----- |
+| 22 | ALLOW | 10.0.2.2 |
