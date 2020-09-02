@@ -13,6 +13,7 @@ Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu ben
 * [Firewall von nginx-reverse-proxy auf 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-nginx-reverse-proxy-auf-101317)
 * [Firewall von apache2-web auf 10.1.31.20](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-apache2-web-auf-1013120)
 
+
 ### Firewall von 10.1.31.7
 
 *Status*: aktiv
