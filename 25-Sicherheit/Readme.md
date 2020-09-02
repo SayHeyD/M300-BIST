@@ -52,8 +52,8 @@ So können die rechte für die verbinddung schnell entzogen werden im falle das 
 Als Software für die Server-Firewalls verwenden wir ufw, da dies einfach zu benutzen ist und schon auf ubuntu vorinstalliert ist.
 
 * [Firewall von 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-101317)
-* [Firewall von 10.1.31.14](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-101314))
-* [Firewall von 10.1.31.20](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-101320))
+* [Firewall von 10.1.31.14](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-101314)
+* [Firewall von 10.1.31.20](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-101320)
 * [Firewall von apache2-web auf 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-apache2-web-auf-101317)
 * [Firewall von nginx-reverse-proxy auf 10.1.31.7](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-nginx-reverse-proxy-auf-101317)
 * [Firewall von apache2-web auf 10.1.31.20](https://github.com/SayHeyD/M300-BIST/tree/master/25-Sicherheit#firewall-von-apache2-web-auf-1013120)
