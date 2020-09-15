@@ -60,6 +60,14 @@ gewissen IP Adressen zugegriffen werden kann. Ich denke dass kann ich in Zukunft
 
 ### Moritz
 
+Vagrant hatte ich in der TBZ schonmal angewendet jedoch wurde mir dan nicht klar wie viel zeit es einem ersparen kann, quasi vorgefertigite VMs zu haben. Ich denke nicht das ich es in naher zukunft in meinem Betrieb anwenden werde, jedoch werde ich sicher mal privat noch damit spielen.
+
+Wieguard kannte ich schon und habe auch schonmal damit ein VPN in mein eigenes Netzwerk aufgesetzt.
+
+Auf Linux habe ich noch nie eine Key authentifizierung verwendet und mir auch nie wirklich gedanken darum gemacht. Wir haben dies auf all unseren Servern in der TBZ-Cloud eingerichtet und da ich sah das es sehr simpel ist werde ich diese Methode auch bei Privaten servern verwenden. Auch das verbieten von IPs in der Ubuntu Firewall werde ich nun anwenden.
+
+Ich bin fan geworden von Github. Finde es sehr schade haben nicht schon andere Lehrer in den letzten 3 Jahren Dokumentationen auf Github verlangt. Ich werde in der Zukunft Github definitiv mehr verwnden für Projekte die eine Zusammen Arbeit benötigen.
+
 ### David
 
 Ich habe in diesem Modul zum ersten mal mit Vagrant und der TBZ Cloud gearbeitet. Ebenso habe ich zum ersten mal Wireguard benutzt und bin davon sehr beeindruckt, allerdings habe ich auch nur gutes davon gehört. Das Anlegen von Verbindungen per Wireguard, wird mir denke ich am meisten bringen, da ich nicht denke das ich in Zukunft mit Vagrant abrbeiten werde. Wenn ich etwas von diesem Modul mitnehmen kann, dann wird das wahrscheinlich mit dem Container-Teil kommen, daher ich mir denke, das ich in Zukunft damit in Kontakt kommen werde.
