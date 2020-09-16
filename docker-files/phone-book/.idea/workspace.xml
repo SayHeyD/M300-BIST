@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fff9f4ff-14fc-4543-853f-ac20d73906ff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BookEntryController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WelcomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/BookEntry.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_16_093633_create_book_entries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/phone-book.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phone-book.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600248128221</updated>
-      <workItem from="1600248129430" duration="1854000" />
+      <workItem from="1600248129430" duration="6688000" />
     </task>
     <servers />
   </component>
@@ -184,9 +192,9 @@
       <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state width="1638" height="262" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1600248236274" />
-    <state x="659" y="440" key="NewPhpFileDialog" timestamp="1600249039388">
+    <state x="659" y="440" key="NewPhpFileDialog" timestamp="1600259902087">
       <screen x="0" y="23" width="1680" height="973" />
     </state>
-    <state x="659" y="440" key="NewPhpFileDialog/0.23.1680.973@0.23.1680.973" timestamp="1600249039388" />
+    <state x="659" y="440" key="NewPhpFileDialog/0.23.1680.973@0.23.1680.973" timestamp="1600259902087" />
   </component>
 </project>

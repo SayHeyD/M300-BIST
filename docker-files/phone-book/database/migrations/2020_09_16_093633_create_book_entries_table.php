@@ -15,6 +15,14 @@ class CreateBookEntriesTable extends Migration
     {
         Schema::create('book_entries', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('surename');
+            $table->string('street');
+            $table->string('housenumber');
+            $table->string('location');
+            $table->string('zipcode');
+            $table->string('email');
+            $table->string('phonenumber');
             $table->timestamps();
         });
     }
