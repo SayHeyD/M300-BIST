@@ -55,6 +55,8 @@ apt-get install mysql-client
 docker exec -it [container_name] mysql -uroot -p
 ```
 
+https://phoenixnap.com/kb/mysql-docker-container
+
 ## Persönlicher Wissensstand
 
 ### Andi
