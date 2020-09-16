@@ -4,7 +4,7 @@
 
 | Docker Befehl| Funktionsbeschreibung |
 | ------------- |-----------------------|
-|| docker ps  | Aktive Container anzeigen |
+| docker ps  | Aktive Container anzeigen |
 | docker ps -a  | Alle Container anzeigen |
 | docker stop  | Einen oder mehrere Container stoppen  |
 | docker stop  | Einen oder mehrere Container stoppen  |
