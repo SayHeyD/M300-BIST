@@ -189,6 +189,9 @@ Daher Lynx keine Fehlermeldung für Timeouts ausgibt, nehmen wir nach 15 sekunde
 
 In dem Netzwerk ist DHCP deaktiviert und die Adressen sind statisch vergeben.
 
+## Netzwerkplan
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/netzwerkplan.png" alt="Netzwerkplan">
+
 ### Vagrant Befehle (K3)
 | Vagrant Befehl| Funktionsbeschreibung |
 | ------------- |-----------------------|
@@ -224,6 +227,24 @@ ngrok http 80
 ```
 
 > Falls ngrok noch nicht installiert ist dann: [Ngrok installieren](https://snapcraft.io/install/ngrok/ubuntu)
+
+Um zu verhindern, dass jeder mit SSH verbinden können, geben wir den Zugriff für bestimmte IP's frei
+
+5. Wir erlauben auf der Firewall gewissen IP's den Zugriff via SSH:
+```
+sudo ufw allow from 10.1.31.50 to any port 22
+```
+
+6. Firewall Regel aktivieren:
+```
+ sudo ufw enable
+```
+
+7. Status überprüfen
+```
+ sudo ufw status
+```
+
 
 ## Markdown editor (K2)
 

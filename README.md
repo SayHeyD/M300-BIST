@@ -41,11 +41,32 @@ Vagrant habe ich bisher nicht gekannt. Somit habe ich noch keinerlei Erfahrung i
 
 Mit Github habe ich bis jetzt nur bestehende Dateien bearbeitet und gepushed. Bis jetzt habe ich noch keine GIT-Umgebung selber aufgezogen und unterhalten.
 
-## Persönliche Lernentwicklung (K5)
+## Persönliche Lernentwicklung & Reflexion (K5)
 
 ### Andi
 
+Nun Verstehe ich den Umgang mit Vagrant und konnte erfolgreich mit "Vagrantfile" VM's erstellen. Bin erstaunt, wie effizient das Tool funktioniert. Jedoch weiss ich nicht, ob ich das Tool in naher Zukunft in meinem Arbeitsumfeld verwenden werde.
+
+Mit Wireguard konnte ich eine Tunnelverbindung zu der TBZ Cloud erstellen. Mit Wireguard hatte
+ich zuvor nichts zu tun und bin erstaunt, wie gut das tool funktioniert.
+
+Auf der TBZ Cloud habe ich erfolgreich ein Apache Web-Server erstellt und den Zugriff bis auf ein paar IP Adressen beschränkt.
+
+Überzeugt hat mich Github. Finde es eine sehr gute Methode eine Dokumentation zu führen. Nun benutze ich Github
+auch Privat um gewisse Anleitungen zu festzuhalten.
+
+Zusätzlich habe ich gelernt die vorhandene Firewall von Ubuntu zu nutzen und soweit zu konfigurieren, dass von
+gewissen IP Adressen zugegriffen werden kann. Ich denke dass kann ich in Zukunft gut gebrauchen.
+
 ### Moritz
+
+Vagrant hatte ich in der TBZ schonmal angewendet jedoch wurde mir dan nicht klar wie viel zeit es einem ersparen kann, quasi vorgefertigite VMs zu haben. Ich denke nicht das ich es in naher zukunft in meinem Betrieb anwenden werde, jedoch werde ich sicher mal privat noch damit spielen.
+
+Wieguard kannte ich schon und habe auch schonmal damit ein VPN in mein eigenes Netzwerk aufgesetzt.
+
+Auf Linux habe ich noch nie eine Key authentifizierung verwendet und mir auch nie wirklich gedanken darum gemacht. Wir haben dies auf all unseren Servern in der TBZ-Cloud eingerichtet und da ich sah das es sehr simpel ist werde ich diese Methode auch bei Privaten servern verwenden. Auch das verbieten von IPs in der Ubuntu Firewall werde ich nun anwenden.
+
+Ich bin fan geworden von Github. Finde es sehr schade haben nicht schon andere Lehrer in den letzten 3 Jahren Dokumentationen auf Github verlangt. Ich werde in der Zukunft Github definitiv mehr verwnden für Projekte die eine Zusammen Arbeit benötigen.
 
 ### David
 
