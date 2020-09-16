@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\BookEntryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('index');
+
+Route::get('/entry/{id}', [BookEntryController::class, 'edit'])->name('entry.edit');
+Route::get('/update/{id}', [BookEntryController::class, 'update'])->name('entry.delete');
+Route::get('/create', [BookEntryController::class, 'create'])->name('entry.create');
+Route::get('/store', [BookEntryController::class, 'store'])->name('entry.store');
+Route::get('/delete/{id}', [BookEntryController::class, 'delete'])->name('entry.delete');
+
