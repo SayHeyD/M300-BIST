@@ -99,6 +99,23 @@ mysql -uroot -pmypassword -h127.0.0.1 -P6603 -e 'show global variables like "max
 
 ### Andi
 
+Bisher waren mir "Container" oder "Docker" nicht wirklich ein Begriff. In meiner Arbeitsumgebung hatte ich nur mit gewöhnlichen VM's zu tun, welche mit VMWare Player oder Virtualbox erstellt wurden.
+Die Möglichkeiten und die Vielzahl an Verwendungszewecken, welche mit Containersystemen bewerkstelligt werden können, sind mir bisher nicht bekannt gewesen.
+
+### Moritz
+
+### David
+
+## Persönliche Lernentwicklung & Reflexion
+
+### Andi
+
+Im Unterricht wurden mir die Verwendungszwecke genauer erklärt und aufgezeigt wie mit Containern gearbeitet werden soll. In der Praxisarbeit habe ich zum ersten Mal ein Container erstellt und den Microservice aufgebaut.
+
+Die Handhabung und das Verständnis wie genau was und wo erstellt werden sollte, schien mir zu Beginn etwas komplex und Umständlich. Zuerst habe ich es nicht wirklich begriffen. Als ich zum 2. Mal ein MySQL Container erstellt hatte, schien es schon etwas besser zu klappen. Als ich dazu dann noch die Doku erstellt habe, wurde mir einiges klar und ich konnte erfolgreich ein Container erstellen und bearbeiten.
+
+Ich denke jedoch, dass das aufziehen und unterhalten einer solchen Conainer-Umgebung, ohne grosse Übung, viel Zeit in Anspruch nimmt. Die Idee finde ich sehr gut, da eine dynamische Arbeitsweise geschaffen werden kann und schnell neue Funktionen und Microservices erstellt und bearbeitet werden können. 
+
 ### Moritz
 
 ### David
