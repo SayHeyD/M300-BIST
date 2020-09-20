@@ -56,6 +56,45 @@ docker exec -it [container_name] mysql -uroot -p
 ```
 ![rootpw](https://github.com/SayHeyD/M300-BIST/blob/master/images/tempsnip.png)
 
+3. Das root-Passwort angeben.
+
+4. Zum Schluss das root-Passwort ändern. ```[newpassword]``` durch das neue Passwort ersetzen.
+
+```
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
+```
+
+### Schritt 4: MySQL Container konfigurieren
+
+Info: Die Konfigurations-Optionen finden sich unter folgenden Pfad:  ```/etc/mysql/my.cnf```.
+
+1. Zuerst ein neuer Pfad für den Container erstellen.
+
+```
+mkdir -p /root/docker/[container_name]/conf.d
+```
+
+2. Wenn in diesem Verzeichnis Änderungen gemacht wurden, ist es notwendig, den Container zu entfernen und einen neuen zu erstellen. Der neue Container bezieht die konfig-Datei, welche vorher erstellt wurde.
+
+Dazu muss der Container gestartet werden und den volumepfad mit folgenden befehlen gebildet werden.
+
+```
+docker run \
+--detach \
+--name=[container_name]\
+--env="MYSQL_ROOT_PASSWORD=[my_password]" \
+--publish 6603:3306 \
+--volume=/root/docker/[container_name]/conf.d:/etc/mysql/conf.d \
+mysql
+```
+
+3. Um zu überprüfen, ob der Container die Konfig-Datei vom Host ladet, folgenden Befehl ausführen.
+
+```
+mysql -uroot -pmypassword -h127.0.0.1 -P6603 -e 'show global variables like "max_connections"';
+```
+
+
 
 https://phoenixnap.com/kb/mysql-docker-container
 
