@@ -10,6 +10,7 @@
 | docker stop  | Einen oder mehrere Container stoppen  |
 | docker restart  | Einen oder mehrere Container neustarten|
 | docker rm | Einen oder mehrere Container löschen|
+| docker inspect | Speicherort des Volumes überprüfen |
 
 ## MySQL Container mit Docker
 
@@ -93,10 +94,6 @@ mysql
 ```
 mysql -uroot -pmypassword -h127.0.0.1 -P6603 -e 'show global variables like "max_connections"';
 ```
-
-
-
-https://phoenixnap.com/kb/mysql-docker-container
 
 ## Persönlicher Wissensstand
 
