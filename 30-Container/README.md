@@ -45,6 +45,7 @@ sudo add-apt-repository \
 
 Danach kann man docker über apt-get isntallieren:
 ```sudo apt-get update```
+
 ```sudo apt-get install docker-ce docker-ce-cli containerd.io```
 
 Nun sollte man mit dem Befehl ```docker -v``` die aktuelle installierte Dockerversion sehen.
@@ -55,7 +56,7 @@ Kubernetes kann über snap oder über apt-get isntalliert werden. Hier wird nur 
 
 Um Kubernets zu isntallieren müssen nur wenige Befehle ausgeführt werden:
 
-```sudo apt-get update && sudo apt-get install -y apt-transport-https````
+```sudo apt-get update && sudo apt-get install -y apt-transport-https```
 ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
 ```echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list``` sollte ```deb https://apt.kubernetes.io/ kubernetes-xenial main``` ausgeben.
 ```sudo apt-get update```
