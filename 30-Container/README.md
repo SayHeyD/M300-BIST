@@ -92,13 +92,25 @@ Es gibt natürlich noch viele weitere möglichkeiten einen Container zu starten.
 
 Mögliche Argumente.
 
-| Argument | Beschreibung |
+| Option | Beschreibung |
 | ----- | ----- |
 | -d | Startet den Container als deamon |
 | -p [HostIP mit Port]:[Container Port] | Exposed und Bindet den COntainer Port auf den Host-Port |
 | --hostname [Hostname] oder -h [Hostname] | Setzt den Hostname des Containers |
 
 [Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/run/)
+
+#### docker ps
+
+```docker ps [OPTIONS]``` listet Container auf. Ohne angegebene Optionen listet der COmmand alle laufenden Container auf.
+
+| Option | Beschreibung |
+| ----- | ----- |
+| -a | Listet alle Contaienr auf die laufen und gelaufen sind |
+| -s | Zeigt die Festplattenbelegung pro Container an |
+| --format "[Format String]" | Formatiert den Output des Befehls. Die Keys zur Formatierung können [hier eingesehen werden](https://docs.docker.com/engine/reference/commandline/ps/#formatting) |
+
+[Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/ps/)
 ## Persönlicher Wissensstand
 
 ### Andi
