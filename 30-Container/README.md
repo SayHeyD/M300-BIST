@@ -57,7 +57,9 @@ Um Kubernets zu isntallieren müssen nur wenige Befehle ausgeführt werden:
 
 ```sudo apt-get update && sudo apt-get install -y apt-transport-https```  
 ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```  
-```echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list``` sollte ```deb https://apt.kubernetes.io/ kubernetes-xenial main``` ausgeben.  
+
+```echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list``` sollte ```deb https://apt.kubernetes.io/ kubernetes-xenial main``` ausgeben.
+
 ```sudo apt-get update```  
 ```sudo apt-get install -y kubectl```
 
@@ -73,7 +75,7 @@ Dieser Befehl startet einen nginx container mit standard-konfiguration. Der Port
 
 Nun shen wir uns an welcher Teil des commands was genau macht.
 
-```docker run``` sagt Docker das wir einen Container starten wollen und jetzt die optinonen für den Start folgen.
+```docker run``` sagt Docker das wir einen Container starten wollen und jetzt die Optionen für den Start folgen.
 
 ```-p 0.0.0.0:80:80``` sagt Docker das der Host Port ```0.0.0.0:80``` auf den Container Port ```80``` gebunden wird. Das bedeutet das alles was im Container auf den Port 80 läuft auch auf den Host-Port ```0.0.0.0:80``` läuft. Der Syntax für das Port-Binding funktioniert also folgendermassen: ```-p [HostIP mit Port]:[Container Port]```
 
