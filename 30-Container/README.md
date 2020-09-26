@@ -67,69 +67,9 @@ Nun ist kubectl auf dem aktuellen Server installiert und bereit um verwendet zu 
 
 ## Docker
 
-### Starten eines Containers
+### MySQL Container mit Docker
 
-Um einen einfachen Container zu starten können wir einfach den befehl ```docker run -p 0.0.0.0:80:80 -d nginx``` ausführen.
-
-Dieser Befehl startet einen nginx container mit standard-konfiguration. Der Port 80 des Containers wird auf den Port 80 des Hosts gebunden und Exposed. Ebenso wird der Container als deamon gestartet.
-
-Nun shen wir uns an welcher Teil des commands was genau macht.
-
-```docker run``` sagt Docker das wir einen Container starten wollen und jetzt die Optionen für den Start folgen.
-
-```-p 0.0.0.0:80:80``` sagt Docker das der Host Port ```0.0.0.0:80``` auf den Container Port ```80``` gebunden wird. Das bedeutet das alles was im Container auf den Port 80 läuft auch auf den Host-Port ```0.0.0.0:80``` läuft. Der Syntax für das Port-Binding funktioniert also folgendermassen: ```-p [HostIP mit Port]:[Container Port]```
-
-```-d``` sagt docker das man den Container als deamon starten will. Das bededutet das der Server als Dienst läuft und das man nach dem Start die Console-Session normal weiter benutzen kann. Wenn man den Container nicht als Deamon startet kann man die Konsole nicht weiterverwenden bis man den Container wieder mit ```Ctrl+C```beendet.
-
-Nun haben wird einen Nginx Docker Container gestartet und können auf die Website über die Host-IP zugreifen.
-Es gibt natürlich noch viele weitere möglichkeiten einen Container zu starten.
-
-### Docker-Commands
-
-#### docker run
-
-```docker run [OPTIONS] IMAGE [COMMAND] [ARG...]``` startet den spezifizierten Container mit den spezifizierten Konfigurationsmöglichkeiten.
-
-Mögliche Argumente.
-
-| Option | Beschreibung |
-| ----- | ----- |
-| -d | Startet den Container als deamon |
-| -p [HostIP mit Port]:[Container Port] | Exposed und Bindet den COntainer Port auf den Host-Port |
-| --hostname [Hostname] oder -h [Hostname] | Setzt den Hostname des Containers |
-
-[Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/run/)
-
-#### docker ps
-
-```docker ps [OPTIONS]``` listet Container auf. Ohne angegebene Optionen listet der COmmand alle laufenden Container auf.
-
-| Option | Beschreibung |
-| ----- | ----- |
-| -a | Listet alle Contaienr auf die laufen und gelaufen sind |
-| -s | Zeigt die Festplattenbelegung pro Container an |
-| --format "[Format String]" | Formatiert den Output des Befehls. Die Keys zur Formatierung können [hier eingesehen werden](https://docs.docker.com/engine/reference/commandline/ps/#formatting) |
-
-[Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/ps/)
-## Persönlicher Wissensstand
-
-### Andi
-=======
-# Docker Befehle
-
-| Docker Befehl| Funktionsbeschreibung |
-| ------------- |-----------------------|
-| docker ps  | Aktive Container anzeigen |
-| docker ps -a  | Alle Container anzeigen |
-| docker stop  | Einen oder mehrere Container stoppen  |
-| docker stop  | Einen oder mehrere Container stoppen  |
-| docker restart  | Einen oder mehrere Container neustarten|
-| docker rm | Einen oder mehrere Container löschen|
-| docker inspect | Speicherort des Volumes überprüfen |
-
-## MySQL Container mit Docker
-
-### Schritt 1: MySQL Docker Image laden
+#### Schritt 1: MySQL Docker Image laden
 
 1. Ziehe ein mysql-Image mit der aktuellsten Version. Es können auch ältere Versionen ausgewählt werden, wenn ```latest``` durch die entsprechende Version ersetzt wird. Eine Übersicht der Versionen sind auf [dieser Seite](https://hub.docker.com/_/mysql)
 
@@ -143,7 +83,7 @@ docker pull mysql/mysql-server:latest
 docker images
 ```
 
-### Schritt 2: MySQL Container deployen
+#### Schritt 2: MySQL Container deployen
 
 1. Nun wird ein container erzeugt. ```[container_name]``` muss durch einen gewünschten Namen ersetzt werden. Die Option ```-d``` weist Docker an, den Container als Dienst im Hintergrund laufen zu lassen. Es kann wieder eine andere Version ausgewählt werden, indem ```latest``` durch die entsprechende Versions-Nummer ersetzt wird.
 
@@ -157,7 +97,7 @@ docker run --name=[container_name] -d mysql/mysql-server:latest
 docker ps
 ```
 
-### Schritt 3: Mit MySQL Docker Container verbinden
+#### Schritt 3: Mit MySQL Docker Container verbinden
 
 1. Zuerst muss MySQL client package installiert werden.
 
@@ -180,7 +120,7 @@ docker exec -it [container_name] mysql -uroot -p
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```
 
-### Schritt 4: MySQL Container konfigurieren
+#### Schritt 4: MySQL Container konfigurieren
 
 Info: Die Konfigurations-Optionen finden sich unter folgenden Pfad:  ```/etc/mysql/my.cnf```.
 
@@ -209,6 +149,60 @@ mysql
 ```
 mysql -uroot -pmypassword -h127.0.0.1 -P6603 -e 'show global variables like "max_connections"';
 ```
+
+### Starten eines Nginx Containers
+
+Um einen einfachen Container zu starten können wir einfach den befehl ```docker run -p 0.0.0.0:80:80 -d nginx``` ausführen.
+
+Dieser Befehl startet einen nginx container mit standard-konfiguration. Der Port 80 des Containers wird auf den Port 80 des Hosts gebunden und Exposed. Ebenso wird der Container als deamon gestartet.
+
+Nun shen wir uns an welcher Teil des commands was genau macht.
+
+```docker run``` sagt Docker das wir einen Container starten wollen und jetzt die Optionen für den Start folgen.
+
+```-p 0.0.0.0:80:80``` sagt Docker das der Host Port ```0.0.0.0:80``` auf den Container Port ```80``` gebunden wird. Das bedeutet das alles was im Container auf den Port 80 läuft auch auf den Host-Port ```0.0.0.0:80``` läuft. Der Syntax für das Port-Binding funktioniert also folgendermassen: ```-p [HostIP mit Port]:[Container Port]```
+
+```-d``` sagt docker das man den Container als deamon starten will. Das bededutet das der Server als Dienst läuft und das man nach dem Start die Console-Session normal weiter benutzen kann. Wenn man den Container nicht als Deamon startet kann man die Konsole nicht weiterverwenden bis man den Container wieder mit ```Ctrl+C```beendet.
+
+Nun haben wird einen Nginx Docker Container gestartet und können auf die Website über die Host-IP zugreifen.
+Es gibt natürlich noch viele weitere möglichkeiten einen Container zu starten.
+
+### Docker-Commands
+
+| Docker Befehl| Funktionsbeschreibung |
+| ------------- |-----------------------|
+| docker run | Container starten |
+| docker ps  | Aktive Container anzeigen |
+| docker stop  | Einen oder mehrere Container stoppen  |
+| docker restart  | Einen oder mehrere Container neustarten|
+| docker rm | Einen oder mehrere Container löschen|
+| docker inspect | Speicherort des Volumes überprüfen |
+
+#### docker run
+
+```docker run [OPTIONS] IMAGE [COMMAND] [ARG...]``` startet den spezifizierten Container mit den spezifizierten Konfigurationsmöglichkeiten.
+
+Mögliche Argumente.
+
+| Option | Beschreibung |
+| ----- | ----- |
+| -d | Startet den Container als deamon |
+| -p [HostIP mit Port]:[Container Port] | Exposed und Bindet den COntainer Port auf den Host-Port |
+| --hostname [Hostname] oder -h [Hostname] | Setzt den Hostname des Containers |
+
+[Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/run/)
+
+#### docker ps
+
+```docker ps [OPTIONS]``` listet Container auf. Ohne angegebene Optionen listet der COmmand alle laufenden Container auf.
+
+| Option | Beschreibung |
+| ----- | ----- |
+| -a | Listet alle Contaienr auf die laufen und gelaufen sind |
+| -s | Zeigt die Festplattenbelegung pro Container an |
+| --format "[Format String]" | Formatiert den Output des Befehls. Die Keys zur Formatierung können [hier eingesehen werden](https://docs.docker.com/engine/reference/commandline/ps/#formatting) |
+
+[Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/ps/)
 
 ## Persönlicher Wissensstand
 
