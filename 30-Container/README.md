@@ -188,6 +188,28 @@ Mögliche Argumente.
 
 [Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/ps/)
 
+## Container für Eigenen Service
+
+Als Vorbereitung für unseren eigenen Service müssen wir einige Container erstellen.
+
+User Service soll eine eigens für dieses Modul erstellte Web-App sein. Die Webapp wurde mit [Laravel](https://laravel.com/) erstellt. Laravel ist ein PHP-Framework. Unsere WEb-App ist ein kleines Telefonbuch in dem wir KOntakte speichern können. Damit alles richtig funktioniert, brauchen wir einen Nginx-Webserver auf welchem unsere Apllikationsdateien liegen, einen MySQL-Datenbank Server auf welchem usnere Daten liegen, einen php-fpm server um unsere PHP-Scripts auszuführen und einen Reverse-Proxy.
+
+Benötigte Container:
+* php7.4-fpm mit php-extensions
+* nginx webserver mit applikationsdateien
+* mysql datenbankserver
+* ngninx reverse-proxy
+
+### PHP-FPM Container
+
+Für den php7.4-fpm server gitb es bereits ein [docker-image](https://hub.docker.com/_/php), jedoch sind dort noch nicht alle php-extension installiert welche wir für das betreiben der Web-App benötigen. Man könnte diese extensions in einem Dockerfile alle manuell installieren, allerdings gibt es bereits ein script welches einen grossteil der Installation für einen übernimmt, wir müssen zwar immer noch ein eigenes [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) für den Container erstellen, jedoch geht das mit dem [```install-php-extensions``` script](https://github.com/mlocati/docker-php-extension-installer) einiges schneller.
+
+Nachdem wir das [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) angelegt haben, können wir das image builden:
+
+1. In den selber Ordner wie das Dockerfile navigieren
+2. ```docker build -t php7.4-fpm-with-extensions .``` ausführen
+3. Mit ```docker images``` überprüfen ob ein image mit dem Namen *php7.4-fpm-with-extensions* vorhanden ist.
+
 ## Persönlicher Wissensstand
 
 ### Andi
