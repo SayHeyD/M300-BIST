@@ -2,7 +2,7 @@
 
 ## Kubernetes Installieren
 
-Kubernetes kann über snap oder über apt-get isntalliert werden. Hier wird nur die apt-get methode aufgezeigt. beide möglichkeiten können auf der [Website von Kubernetes](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) eingesehen werden.
+Kubernetes kann über snap oder über apt-get installiert werden. Hier wird nur die apt-get methode aufgezeigt. beide möglichkeiten können auf der [Website von Kubernetes](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) eingesehen werden.
 
 Um Kubernets zu isntallieren müssen nur wenige Befehle ausgeführt werden:
 
