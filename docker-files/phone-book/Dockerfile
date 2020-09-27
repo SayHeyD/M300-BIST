@@ -4,7 +4,7 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 # Installing PHP extensions
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
-RUN install-php-extensions bcmath pdo_mysql mysqli zip unzip
+RUN install-php-extensions bcmath pdo_mysql mysqli zip
 
 # Install Nginx
 RUN apt-get update
@@ -16,9 +16,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Projektverzeichnis kopieren
 COPY ./phone-book-app /var/www/phone-book-app
 
-RUN composer install -d=/var/www/phone-book-app
-RUN php /var/www/phone-book-app/artisan key:generate
-RUN php /var/www/phone-book-app/artisan key:migrate
+RUN composer install -d /var/www/phone-book-app
 
 RUN chown -R www-data /var/www/phone-book-app
 
