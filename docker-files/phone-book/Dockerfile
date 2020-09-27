@@ -16,6 +16,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Projektverzeichnis kopieren
 COPY ./phone-book-app /var/www/phone-book-app
 
+RUN composer install -d=/var/www/phone-book-app
+RUN php /var/www/phone-book-app/artisan key:generate
+RUN php /var/www/phone-book-app/artisan key:migrate
+
+RUN chown -R www-data /var/www/phone-book-app
+
 # Konfigurationsdatei ersetzen
 COPY ./nginx.conf /etc/nginx/sites-available/default
 
