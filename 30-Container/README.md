@@ -201,7 +201,31 @@ Benötigte Container:
 * mysql datenbankserver
 * ngninx reverse-proxy
 
+Ebenfalls benötigen wir ein eigens Netzwerk um unseren Service in Docker das erste mal zu testen, bevor wir das ganze auf Kubernetes übernehmen.
+
+### Docker Netzwerk
+
+Um uns die verfügbaren Docker Netzwerke anzeigen zu lassen, können wir den Befehl ```docker network ls``` ausführen. Dieser Befehl zeigt uns alle verfügbaren Netzwerke an.
+
+Docker bietet verschiedene Netzwerktypen an, die man von der virtualisierung her auch kennt. Darunter fallen z.B. Bridged oder Host-Only netzwerke.
+
+Für usnere Zwecke wollen wir ein eigenes bridged Netzwerk erstellen, damit sich unsere container per name und nicht nur per IP resolven können.
+
+Um ein neues Bridged netzwerk zu erstellen führen wir folgenden command aus:
+```docker network create phone-book```
+
+Neu erstellte Docker Netzwerke sind standardmässig Beidged Netzwerke.
+Nun sollte unser Netzwerk auch unter ```docker network ls``` aufgeführt werden.
+
 ### MySQL Server
+
+Das [MySQL-Server iamge](https://hub.docker.com/_/mysql), das von mysql selbst gegeben wird, muss nur noch konfiguriert werdne um gestartet werden zu können, hier müssen wir kein eigens Dockerfile anlegen. Um das ganze erst einmal zu testen, können wir einen MySQL-Server Container mit dem folgenden Command starten.
+
+Damit das ganze korrekt funktioniert, empfehlen wir ein eigens Verzeichnis für den MySQL container zu erstellen, und in diesem Verzeichnis einen ordner data zu erstellen. Danach können wir den Command ausführen und die ganzen MySLQ Daten werden dank der ```--mount``` option in das data verzeichnis geschrieben und sind somit persistent (Auch nach neustart des Containers verfügbar).
+
+```docker run --name=mysql-server -p 127.0.0.1:6033:3306 --env="MYSQL_ROOT_PASSWORD=root_password" --env="MYSQL_USER=phone-book" --env="MYSQL_PASSWORD=password" --env="MYSQL_DATABASE=phone-book" --mount type=bind,source="$(pwd)"/data,target=/var/lib/mysql -d mysql:5.7```
+
+Danach können wir auf dem Host versuchen uns mit dem mysql server zu verbinden: ```mysql -h 127.0.0.1 -P 6033 -uphone-book -p``` falls wir eine erfolgreiche Verbindung herstellen konnten hat alles geklappt.
 
 ### Nginx / Php-fpm Webserver mit Applikationsdateien
 
@@ -217,11 +241,11 @@ Hierfür kopieren wir im Verzeichnis vor den builden die ```.env.example``` Date
 
 ```
 DB_CONNECTION=mysql
-DB_HOST=[MySQL-Container IP]
+DB_HOST=mysql-server
 DB_PORT=3306
 DB_DATABASE=phone-book
 DB_USERNAME=phone-book
-DB_PASSWORD="Oanaf)/2na9asdb39"
+DB_PASSWORD=password
 ```
 
 Damit Laravel richtig funktioniert müssen wir noch ein par dinge nach dem builden des containers ausführen. Dazu gehört das installieren von abhängikeiten und 2 weitere Schritte zum Setup von Laravel.
@@ -235,6 +259,10 @@ Nachdem wir das [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/do
 1. In den selber Ordner wie das Dockerfile navigieren
 2. ```docker build -t phone-book .``` ausführen
 3. Mit ```docker images``` überprüfen ob ein image mit dem Namen *phone-book* vorhanden ist.
+
+### Beide Container zusammen ausführen
+
+```docker run --network=phone-book -p 80:80 -d phone-book```
 
 ## Persönlicher Wissensstand
 

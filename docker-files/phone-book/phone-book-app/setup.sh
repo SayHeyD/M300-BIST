@@ -10,4 +10,8 @@ composer install
 php artisan key:generate
 php artisan migrate
 
+chown -R www-data ./
+
 service nginx restart
+
+php-fpm
