@@ -49,22 +49,6 @@ Danach kann man docker über apt-get isntallieren:
 
 Nun sollte man mit dem Befehl ```docker -v``` die aktuelle installierte Dockerversion sehen.
 
-## Kubernetes Installieren
-
-Kubernetes kann über snap oder über apt-get isntalliert werden. Hier wird nur die apt-get methode aufgezeigt. beide möglichkeiten können auf der [Website von Kubernetes](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) eingesehen werden.
-
-Um Kubernets zu isntallieren müssen nur wenige Befehle ausgeführt werden:
-
-```sudo apt-get update && sudo apt-get install -y apt-transport-https```  
-```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```  
-
-```echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list``` sollte ```deb https://apt.kubernetes.io/ kubernetes-xenial main``` ausgeben.
-
-```sudo apt-get update```  
-```sudo apt-get install -y kubectl```
-
-Nun ist kubectl auf dem aktuellen Server installiert und bereit um verwendet zu werden.
-
 ## Docker
 
 ### MySQL Container mit Docker
