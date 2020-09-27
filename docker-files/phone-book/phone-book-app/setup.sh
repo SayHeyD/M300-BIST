@@ -9,3 +9,5 @@ composer install
 # Application key genertaion und migration des ORMs
 php artisan key:generate
 php artisan migrate
+
+service nginx restart

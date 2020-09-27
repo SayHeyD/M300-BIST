@@ -8,7 +8,7 @@ RUN install-php-extensions bcmath pdo_mysql mysqli
 
 # Install Nginx
 RUN apt-get update
-RUN apt-get install nginx -y
+RUN apt-get install nginx git -y
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

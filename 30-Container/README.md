@@ -207,9 +207,9 @@ Benötigte Container:
 
 Für den php7.4-fpm server gitb es bereits ein [docker-image](https://hub.docker.com/_/php), jedoch sind dort noch nicht alle php-extensions installiert welche wir für das betreiben der Web-App benötigen. Man könnte diese extensions in einem [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) alle manuell installieren, allerdings gibt es bereits ein script welches einen grossteil der Installation für einen übernimmt, wir müssen zwar immer noch ein eigenes im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) hinzufügen um den Container zu erstellen, jedoch geht das mit dem [```install-php-extensions``` script](https://github.com/mlocati/docker-php-extension-installer) einiges schneller.
 
-Nun müssen wir noch den nginx server und composer installieren dies machen wir im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) einfach mit apt-get und bei composer mit curl. Daher wir curl schon mit den php-extensions mitinstallieren haben, müssen wir dies hier nicht mehr tun.
+Nun müssen wir noch den nginx server und composer installieren dies machen wir im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) einfach mit apt-get und bei composer mit curl. Daher wir curl schon mit den php-extensions mitinstallieren haben, müssen wir dies hier nicht mehr tun. Ebenfalls benötigen wir git für die dependecies.
 
-Nginx installation: ```RUN apt-get install nginx -y```
+Nginx & git installation: ```RUN apt-get install nginx git -y```
 Composer installation: ```curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer```
 
 Bevor wir den Webserver-Container builden können, müssen wir erst das Laravel-Projekt vorbereiten.
