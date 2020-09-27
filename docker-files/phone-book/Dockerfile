@@ -4,7 +4,7 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 # Installing PHP extensions
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
-RUN install-php-extensions bcmath pdo_mysql mysqli
+RUN install-php-extensions bcmath pdo_mysql mysqli zip unzip
 
 # Install Nginx
 RUN apt-get update
@@ -14,7 +14,7 @@ RUN apt-get install nginx git -y
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Projektverzeichnis kopieren
-COPY ./phone-book /var/www/phone-book-app
+COPY ./phone-book-app /var/www/phone-book-app
 
 # Konfigurationsdatei ersetzen
 COPY ./nginx.conf /etc/nginx/sites-available/default
