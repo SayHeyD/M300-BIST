@@ -192,23 +192,49 @@ Mögliche Argumente.
 
 Als Vorbereitung für unseren eigenen Service müssen wir einige Container erstellen.
 
-User Service soll eine eigens für dieses Modul erstellte Web-App sein. Die Webapp wurde mit [Laravel](https://laravel.com/) erstellt. Laravel ist ein PHP-Framework. Unsere WEb-App ist ein kleines Telefonbuch in dem wir KOntakte speichern können. Damit alles richtig funktioniert, brauchen wir einen Nginx-Webserver auf welchem unsere Apllikationsdateien liegen, einen MySQL-Datenbank Server auf welchem usnere Daten liegen, einen php-fpm server um unsere PHP-Scripts auszuführen und einen Reverse-Proxy.
+User Service soll eine eigens für dieses Modul erstellte Web-App sein. Die Webapp wurde mit [Laravel](https://laravel.com/) erstellt. Laravel ist ein PHP-Framework. Unsere Web-App ist ein kleines Telefonbuch in dem wir KOntakte speichern können. Damit alles richtig funktioniert, brauchen wir einen Nginx-Webserver auf welchem unsere Apllikationsdateien liegen, einen MySQL-Datenbank Server auf welchem usnere Daten liegen und einen Reverse-Proxy.
+
+Da wir für Laravel php commands im container ausführen müssen, können wir den php-fpm server nicht vom webserver trennen und deshalb sind beide Services im gleichen Container.
 
 Benötigte Container:
-* php7.4-fpm mit php-extensions
-* nginx webserver mit applikationsdateien
+* nginx / php-fpm webserver mit applikationsdateien
 * mysql datenbankserver
 * ngninx reverse-proxy
 
-### PHP-FPM Container
+### MySQL Server
 
-Für den php7.4-fpm server gitb es bereits ein [docker-image](https://hub.docker.com/_/php), jedoch sind dort noch nicht alle php-extension installiert welche wir für das betreiben der Web-App benötigen. Man könnte diese extensions in einem Dockerfile alle manuell installieren, allerdings gibt es bereits ein script welches einen grossteil der Installation für einen übernimmt, wir müssen zwar immer noch ein eigenes [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) für den Container erstellen, jedoch geht das mit dem [```install-php-extensions``` script](https://github.com/mlocati/docker-php-extension-installer) einiges schneller.
+### Nginx / Php-fpm Webserver mit Applikationsdateien
+
+Für den php7.4-fpm server gitb es bereits ein [docker-image](https://hub.docker.com/_/php), jedoch sind dort noch nicht alle php-extensions installiert welche wir für das betreiben der Web-App benötigen. Man könnte diese extensions in einem [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) alle manuell installieren, allerdings gibt es bereits ein script welches einen grossteil der Installation für einen übernimmt, wir müssen zwar immer noch ein eigenes im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) hinzufügen um den Container zu erstellen, jedoch geht das mit dem [```install-php-extensions``` script](https://github.com/mlocati/docker-php-extension-installer) einiges schneller.
+
+Nun müssen wir noch den nginx server und composer installieren dies machen wir im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) einfach mit apt-get und bei composer mit curl. Daher wir curl schon mit den php-extensions mitinstallieren haben, müssen wir dies hier nicht mehr tun.
+
+Nginx installation: ```RUN apt-get install nginx -y```
+Composer installation: ```curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer```
+
+Bevor wir den Webserver-Container builden können, müssen wir erst das Laravel-Projekt vorbereiten.
+Hierfür kopieren wir im Verzeichnis vor den builden die ```.env.example``` Datei mit dem Command ```cp .env.example .env```, danach müssen wir die Datei editieren um die korrekten MySQL verbindungsdaten einzugeben.
+
+```
+DB_CONNECTION=mysql
+DB_HOST=[MySQL-Container IP]
+DB_PORT=3306
+DB_DATABASE=phone-book
+DB_USERNAME=phone-book
+DB_PASSWORD="Oanaf)/2na9asdb39"
+```
+
+Damit Laravel richtig funktioniert müssen wir noch ein par dinge nach dem builden des containers ausführen. Dazu gehört das installieren von abhängikeiten und 2 weitere Schritte zum Setup von Laravel.
+
+Ebenso müssen wir die nginx-konfiguration anpassen. Am besten erstellen wir dazu eine nginx konfigurationsdatei die wir beim builden als default konfiguration einsetzen.
+
+Dazu fügen wir die Zeile ```COPY ./nginx.conf /etc/nginx/sites-available/default``` in unserem Dockerfile hinzu.
 
 Nachdem wir das [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) angelegt haben, können wir das image builden:
 
 1. In den selber Ordner wie das Dockerfile navigieren
-2. ```docker build -t php7.4-fpm-with-extensions .``` ausführen
-3. Mit ```docker images``` überprüfen ob ein image mit dem Namen *php7.4-fpm-with-extensions* vorhanden ist.
+2. ```docker build -t phone-book .``` ausführen
+3. Mit ```docker images``` überprüfen ob ein image mit dem Namen *phone-book* vorhanden ist.
 
 ## Persönlicher Wissensstand
 
