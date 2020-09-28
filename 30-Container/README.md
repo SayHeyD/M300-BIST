@@ -83,6 +83,7 @@ docker ps
 
 #### Schritt 3: Mit MySQL Docker Container verbinden
 
+
 1. Zuerst muss MySQL client package installiert werden.
 
 ```
