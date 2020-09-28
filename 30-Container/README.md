@@ -324,6 +324,58 @@ Befehl zum starten des MySQL-Containers: ```docker run --name=reverse-proxy --ne
 
 Nun sollten wir die Web-App über die IP des Host-Servers erreichen können. Ebenfalls sollten wir die container mit dem command ```docker ps``` sehen können. Wenn alles gut gelaufen ist, sollte beim Status aller Container UP stehen.
 
+## Testen eines Docker Services (K3)
+
+Um einen Docker Service zu testen gibt es mehrere Möglichkeiten. Die beste möglichkeit um die Funktionalität eines COntainers zu überprüfen sind die Logs von Docker.
+
+Die Logs können mit dem Command ```docker logs [Container ID / Container Name]``` abgrufen werden und werden bei laufenden Containern fortlaufend aktualisert und können erneut abgerufen werden.
+
+Bei laufenden Contaiern können wir sogar in die shell des Containers zugreifen. Dies geht mit dem Befehl ```docker exec -it [Container ID / Conatiner Name] bash``` somit könenn wir sogar befehle im Container ausführen und sehen was noch gemacht werden muss um den Container korrekt zum laufen zu bringen.
+
+### Testfälle (K3)
+
+#### Testen einer Verbindung zum Docker Service
+
+Aufgabe: Verbindung per Web-browser aufbauen und einen neuen Datensatz analgen.
+Erwartetes Ergebnis: Verbindung zur Website kann aufgebaut werden und Datensatz wird erfolgreich gespeichert.
+
+Als erstes veruschen wir auf die [Website](http://135.181.93.7/) zuzugreifen. Hier wird die Website erfolgreich geladen. Nun klicken wir auf den Link "[Neuer Eintrag](http://135.181.93.7/create)". Hier lädt die creation-form. Nun füllen wir das Formular aus und klicken auf den Button "Erstellen". Nun lädt die startseite erneut und unser neuer Eintrag wird angezeigt.
+
+Mit diesem Test haben wir folgendes getestet:
+
+* Korrekte Funktion des Reverse-Proxies
+* Korrekte Funktion der Web-App
+* Korrekte Funktion der Datenbank
+* Korrekte Verbindung der Container
+
+#### Überprüfen der Logs des Web-Apps
+
+Aufgabe: Überprüfen der Logs des Web-App Containers und auf Fehler überprüfen
+Erwartetes Ergebnis: Keine Fehler ausser HTTP Fehlercodes werden in den Logs angezeigt.
+
+Wir verbinden uns mit dem Server und holen uns die ID oder den Namen des Web-App containers.
+Dies machen wir mit dem Befehl ```docker ps```. Der aktuelle Name des Containers ist phone-book-web. Nun können wir uns die Logs mit ```docker logs phone-book-web``` anzeigen lassen.
+
+Die logs des Containers zeigen uns nun folgendes an:
+
+```
+Restarting nginx: nginx.
+Application key set successfully.
+Nothing to migrate.
+[28-Sep-2020 17:22:38] NOTICE: fpm is running, pid 38
+[28-Sep-2020 17:22:38] NOTICE: ready to handle connections
+127.0.0.1 -  28/Sep/2020:17:49:18 +0000 "GET /index.php" 200
+127.0.0.1 -  28/Sep/2020:17:49:21 +0000 "GET /index.php" 200
+127.0.0.1 -  28/Sep/2020:18:47:27 +0000 "GET /index.php" 200
+127.0.0.1 -  28/Sep/2020:18:50:17 +0000 "GET /index.php" 302
+127.0.0.1 -  28/Sep/2020:18:50:18 +0000 "GET /index.php" 200
+127.0.0.1 -  28/Sep/2020:18:54:20 +0000 "GET /index.php" 404
+```
+
+Die erste Zeile zeigt uns das Nginx neugestartet wird.
+Danach kommen 2 Meldungen von laravel, welche auch keine Fehlermeldungen ausgeben und somit sind diese auch OK.
+Die nächsten Zeilen, zeigen uns die Aktivität vom php-fpm Server und hier sehen wir das erste mal einen Fehlercode. Den HTTP Fehlercode 404. Dies ist aber nicht weiter schlimm, da dieser nur anzeigt das eine Seite nicht gefunden werden konnte.
+
 ## Persönlicher Wissensstand
 
 ### Andi
