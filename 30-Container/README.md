@@ -266,9 +266,11 @@ Der Reverse-proxy
 
 ### Beide Container zusammen ausführen
 
-```docker run --name=phone-book-web --network=phone-book -p 80:80 -d phone-book```
-
 ```docker run --name=mysql-server --network=phone-book --env="MYSQL_ROOT_PASSWORD=root_password" --env="MYSQL_USER=phone-book" --env="MYSQL_PASSWORD=password" --env="MYSQL_DATABASE=phone-book" --mount type=bind,source="$(pwd)"/data,target=/var/lib/mysql -d mysql:5.7```
+
+```docker run --name=phone-book-web --network=phone-book -d phone-book```
+
+```docker run --name=reverse-proxy --network=phone-book -p 80:80 -d reverse-proxy```
 
 ## Persönlicher Wissensstand
 
