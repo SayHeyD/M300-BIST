@@ -260,9 +260,13 @@ Nachdem wir das [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/do
 2. ```docker build -t phone-book .``` ausführen
 3. Mit ```docker images``` überprüfen ob ein image mit dem Namen *phone-book* vorhanden ist.
 
+### Nginx Reverse-Proxy
+
+Der Reverse-proxy
+
 ### Beide Container zusammen ausführen
 
-```docker run --network=phone-book -p 80:80 -d phone-book```
+```docker run --name=phone-book-web --network=phone-book -p 80:80 -d phone-book```
 
 ```docker run --name=mysql-server --network=phone-book --env="MYSQL_ROOT_PASSWORD=root_password" --env="MYSQL_USER=phone-book" --env="MYSQL_PASSWORD=password" --env="MYSQL_DATABASE=phone-book" --mount type=bind,source="$(pwd)"/data,target=/var/lib/mysql -d mysql:5.7```
 
