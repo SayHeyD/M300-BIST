@@ -104,7 +104,7 @@ docker exec -it [container_name] mysql -uroot -p
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```
 
-#### Schritt 4: MySQL Container konfigurieren
+#### Schritt 4: MySQL Container konfigurieren (K3)
 
 Info: Die Konfigurations-Optionen finden sich unter folgenden Pfad:  ```/etc/mysql/my.cnf```.
 
@@ -151,7 +151,7 @@ Nun shen wir uns an welcher Teil des commands was genau macht.
 Nun haben wird einen Nginx Docker Container gestartet und können auf die Website über die Host-IP zugreifen.
 Es gibt natürlich noch viele weitere möglichkeiten einen Container zu starten.
 
-### Docker-Commands
+### Docker-Commands (K3)
 
 | Docker Befehl| Funktionsbeschreibung |
 | ------------- |-----------------------|
@@ -188,7 +188,7 @@ Mögliche Argumente.
 
 [Zur offiziellen Dokumentation](https://docs.docker.com/engine/reference/commandline/ps/)
 
-## Container für Eigenen Service
+## Container für Eigenen Service (K3)
 
 Als Vorbereitung für unseren eigenen Service müssen wir einige Container erstellen.
 
