@@ -262,15 +262,67 @@ Nachdem wir das [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/do
 
 ### Nginx Reverse-Proxy
 
-Der Reverse-proxy
+Der Reverse-proxy soll die Verbindung von web-app container zum internet herstellen. somit ist der web-app container nicht direkt mit dem WAN verbunden um somit noch etwas mehr abgeschützt.
 
-### Beide Container zusammen ausführen
+Der reverse-proxy Container muss folgende Eigenschaften aufweisen:
 
-```docker run --name=mysql-server --network=phone-book --env="MYSQL_ROOT_PASSWORD=root_password" --env="MYSQL_USER=phone-book" --env="MYSQL_PASSWORD=password" --env="MYSQL_DATABASE=phone-book" --mount type=bind,source="$(pwd)"/data,target=/var/lib/mysql -d mysql:5.7```
+* Auf Port 80 von aussen erreichbar sein
+* Mit dem phone-book-app eine verbindung als reverse-proxy herstellen können
 
-```docker run --name=phone-book-web --network=phone-book -d phone-book```
+Hierfür haben wir uns entschieden in einem [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/reverse-proxy/Dockerfile) nginx manuell zu installieren.
 
-```docker run --name=reverse-proxy --network=phone-book -p 80:80 -d reverse-proxy```
+Als erstes müssen wir eine reverse-proxy konfiguration anlegen. Diese wird beim builden zur Datei /etc/nginx/sites-available/default kopiert.
+
+Danach haben wir noch ein [setup.sh](https://github.com/SayHeyD/M300-BIST/blob/david/docker-files/reverse-proxy/setup.sh) script angelegt um nach dem starten des containers den nginx service zu starten.
+
+Nun können wir das image mit dem command ```docker build -t reverse-proxy .``` builden.
+Nun können wir das image wie gewohnt mit ```docker run reverse-proxy``` starten.
+
+### Alle Container zusammen ausführen
+
+Natürlich können wir diese Container alle einzeln benutzen aber das Ziel ist das wir diese Container zusammen als ein Service bestehend aus Microservices laufen lassen. Um dies zu tun gibt es tools wie docker-compose oder kubernetes, hier benutzen wir jedoch einfach nur die Docker befehle und starten alle Container manuell und einzeln.
+
+Als erstes starten wir den Datenbank-Server mit der Entsprechenden konfiguration.
+
+Eigenschaften des Containers:
+
+* Name: mysql-server
+* Netzwerk: phone-book
+* Umgebungsvariablen:
+  * MYSQL_ROOT_PASSWORD: root_password
+  * MYSQL_USER: phone-book
+  * MYSQL_PASSWORD: password
+  * MYSQL_DATABASE: phone-book
+* Mounts:
+  * Mysql Daten:
+    * Source: $(pwd) (absoluter Pfad des aktuelles Verzeichnis)
+    * Target: /var/lib/mysql
+* Als deamon starte: Ja
+
+Befehl zum starten des MySQL-Containers: ```docker run --name=mysql-server --network=phone-book --env="MYSQL_ROOT_PASSWORD=root_password" --env="MYSQL_USER=phone-book" --env="MYSQL_PASSWORD=password" --env="MYSQL_DATABASE=phone-book" --mount type=bind,source="$(pwd)"/data,target=/var/lib/mysql -d mysql:5.7```
+
+Nun starten wir die web-app. Hier müssen wir weitaus weniger beachten, da das meiste beim builden des Images schon gemacht wird.
+
+Eigenschaften des Containers:
+
+* Name: phone-book-web
+* Netzwerk: phone-book
+* Als deamon starte: Ja
+
+Befehl zum starten des MySQL-Containers: ```docker run --name=phone-book-web --network=phone-book -d phone-book```
+
+Als letztes können wir nun den Reverse-Proxy starten. Um diesen zu starten ist auch keine grosse konfiguration nötig.
+
+Eigenschaften des Containers:
+
+* Name: reverse-proxy
+* Netzwerk: phone-book
+* Weitergeleitete-Ports: Container Port 80 auf Host Port 80
+* Als deamon starte: Ja
+
+Befehl zum starten des MySQL-Containers: ```docker run --name=reverse-proxy --network=phone-book -p 80:80 -d reverse-proxy```
+
+Nun sollten wir die Web-App über die IP des Host-Servers erreichen können. Ebenfalls sollten wir die container mit dem command ```docker ps``` sehen können. Wenn alles gut gelaufen ist, sollte beim Status aller Container UP stehen.
 
 ## Persönlicher Wissensstand
 
