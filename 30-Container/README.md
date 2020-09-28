@@ -376,6 +376,52 @@ Die erste Zeile zeigt uns das Nginx neugestartet wird.
 Danach kommen 2 Meldungen von laravel, welche auch keine Fehlermeldungen ausgeben und somit sind diese auch OK.
 Die nächsten Zeilen, zeigen uns die Aktivität vom php-fpm Server und hier sehen wir das erste mal einen Fehlercode. Den HTTP Fehlercode 404. Dies ist aber nicht weiter schlimm, da dieser nur anzeigt das eine Seite nicht gefunden werden konnte.
 
+## Image Bereitstellung (K6)
+
+Die einfachste Methode um images bereitzustellen ist Docker Hub. Docker Hub bietet einem die möglichkeit direkt über das docker-cli seine images von einem Server auf den Docker-Hub hochzuladen.
+
+Um Docker Hub zum hochalden voon Images nutzen zu können müssen wir uns zuerst einen [Account auf Docker Hub anlegen](https://hub.docker.com/signup).
+
+Nachdem wir den Account angelegt haben, können wir versuchen unser phone-book image hochzuladen.
+
+Zuerst müssen wir uns auf dem Server bei Docker Hub anmelden, das können mir mit dem Command:
+```docker login --username=[Username]```
+
+nun können wir unser Passwort eingeben und sollten eine positive Rückmeldung von Docker erhalten.
+
+```
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+```
+
+Nun können wir unsere Images auf dem Server mit ```docker images``` anzeigen lassen und uns den tag des iamges merken, das wir hochladne möchten.
+
+```
+REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+phone-book           latest              abb22853cc4c        25 hours ago        569MB
+```
+
+Bevor wir das image hochladen können, müssen wir den image tag für die repository vorbereiten.
+
+Der neue tag muss wie folgt lauten: ```docker tag [IMAGE ID] [Username]/[Image-name]```
+In userem fall wäre das also: ```docker tag abb22853cc4c sayhey/phone-book```
+
+Danach können wir das image pushen: ```docker push [Username]/[Image-name]```
+Für unser Beispiel: ```docker push sayhey/phone-book```
+
+Nun können wir sehen, dass unser Image auf der [Docker Hub Website](https://hub.docker.com/repositories?ref=login) angezeigt wird.
+
+<img src="https://github.com/SayHeyD/M300-BIST/blob/master/images/Bildschirmfoto%202020-09-28%20um%2022.45.47.png" alt="Docker Hub profile page" width="600px">
+
+Das Image kann jetzt, solange das Image public ist von allen Docker nutzern mit einem Command auf ihren Server geladen werden.
+
+```docker pull sayhey/phone-book```
+
+Dies kann mit beliebig vielen images gemacht werden und ermöglicht einen einfahceren transfer zwischen Entwicklungs- und Produktionsenvoirnment.
+
 ## Persönlicher Wissensstand
 
 ### Andi
