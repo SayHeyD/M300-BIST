@@ -450,3 +450,8 @@ Ich denke jedoch, dass das aufziehen und unterhalten einer solchen Conainer-Umge
 
 ### David
 
+Im Rahmen der Übungen und Aufgabenstellungen, habe ich einiges an Wissen wiederaufgefrischt und dazugelernt, was Docker betrifft, ebenfalls habe ich viel dazugelernt was das erstellen von Docker-images angeht.
+
+Ich denke das Containerisierung eine grosse Zukunft hat, jedoch sehe ich diese Zukunft weniger bei KMUs als bei grösseren Unternhemen wenn nicht sogar bei Unternehmen wie Amazon oder Google welche Conatiner Lösungen als IaaS anbieten. Ich sehe die Zukunft eher in solchen Unternehmen, da das erstmalige Aufsetzen einer solchen Umgebung sehr viel Zeit und Wissen in Anspruch nimmt, denke ich das sehr viele Unternehmen sich diese Technologie nicht leisten können oder leisten wollen.
+
+Mich würde eher interessieren, wie man die Ersttellung der Infrastruktur automatisieren könnte, als die Infrastruktur selbst aufsetzen zu müssen (AWS mässig)
