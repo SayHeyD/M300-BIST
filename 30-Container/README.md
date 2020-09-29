@@ -235,7 +235,7 @@ Für den php7.4-fpm server gitb es bereits ein [docker-image](https://hub.docker
 Nun müssen wir noch den nginx server und composer installieren dies machen wir im [Dockerfile](https://github.com/SayHeyD/M300-BIST/blob/master/docker-files/php-fpm/Dockerfile) einfach mit apt-get und bei composer mit curl. Daher wir curl schon mit den php-extensions mitinstallieren haben, müssen wir dies hier nicht mehr tun. Ebenfalls benötigen wir git für die dependecies.
 
 Nginx & git installation: ```RUN apt-get install nginx git -y```
-Composer installation: ```curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer```
+Composer installation: ```curl -sS https://getcomposer.org/installer | php --install-dir=/usr/local/bin --filename=composer```
 
 Bevor wir den Webserver-Container builden können, müssen wir erst das Laravel-Projekt vorbereiten.
 Hierfür kopieren wir im Verzeichnis vor den builden die ```.env.example``` Datei mit dem Command ```cp .env.example .env```, danach müssen wir die Datei editieren um die korrekten MySQL verbindungsdaten einzugeben.
