@@ -1,10 +1,10 @@
 # Container-Orchestration
 
-## Kubernetes Installieren
+## Kubectl Installieren
 
-Kubernetes kann über snap oder über apt-get installiert werden. Hier wird nur die apt-get methode aufgezeigt. beide möglichkeiten können auf der [Website von Kubernetes](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) eingesehen werden.
+Kubectl kann über snap oder über apt-get installiert werden. Hier wird nur die apt-get methode aufgezeigt. beide möglichkeiten können auf der [Website von Kubernetes](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) eingesehen werden.
 
-Um Kubernets zu isntallieren müssen nur wenige Befehle ausgeführt werden:
+Um Kubectl zu isntallieren müssen nur wenige Befehle ausgeführt werden:
 
 ```sudo apt-get update && sudo apt-get install -y apt-transport-https```  
 ```curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```  
