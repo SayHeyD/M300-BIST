@@ -259,3 +259,11 @@ jobs:
             docker build . --file Dockerfile
           fi
 ```
+
+### Zusätzliche Infos zu Workflows
+
+Die Workflows können direkt auf der GitHub Repository-Seite eingesehen werden.
+
+Diese Seite existiret pro Repository und ist [hier](https://github.com/SayHeyD/laravel-phone-book-docker/actions) verfügbar.
+
+Dort sieht man für welchen Commit welche Workflows erfolgreich waren und weche nicht. Dort sieht man auch mit welcher Fehlermeldung der Task wo Fehlgeschlagen ist. Es gibt je nach dem was für einen Tech-Stack man hat spezialisierte CIs, jedoch finden wir das wenn man nicht auf spezifische Features angewiesen ist und so oder so GitHub verwendet man sich das GitHub CI mal anscheuen sollte, da es eine einfache Integration in fast jede Projektstruktur bietet.
