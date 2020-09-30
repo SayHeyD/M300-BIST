@@ -1,0 +1,35 @@
+otifiers:
+    email:
+      url: "smtp://david@docapo.ch:[PASSWORT]@mail.docampo.ch:587?from=david@docampo.ch&to=david@docampo.ch"
+      template: /etc/docker-events-notifier/templates/email.txt
+  
+  # global filters ( check https://docs.docker.com/engine/reference/commandline/events/#filter-events-by-criteria )
+  filters:
+    event: ["stop", "die", "destroy"]
+  #  container: ["some_container_name"]
+  #  image: ["hasnat/docker-events-notifier"]
+  
+  notifications:
+    - title: "Alert me when a container dies with exitCode 1"
+      when_regex:
+        status: ["(die|destroy)"]
+        "Actor.Attributes.image": ["phone-book", "mysql", "reverse-proxy"]
+      when:
+        "Actor.Attributes.exitCode": ["1"]
+      notify:
+        - email
+  
+    - title: "Alert me when a container dies with exitCode 0"
+      when_regex:
+        status: ["(die|destroy)"]
+        "Actor.Attributes.image": ["phone-book", "mysql", "reverse-proxy"]
+      when:
+        "Actor.Attributes.exitCode": ["0"]
+      notify:
+        - email
+  
+    - title: "Alert me on anything happening to images"
+      when_regex:
+        "Actor.Attributes.image": ["phone-book", "mysql", "reverse-proxy"]
+      notify:
+        - email

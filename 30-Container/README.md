@@ -11,7 +11,7 @@ Um Docker neu zu installieren führt man die folgende Befehle aus:
 Update der repositories: ```sudo apt-get update```
 
 Zusätzlich benötigte programme installieren:
-```
+```bash
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -21,7 +21,7 @@ sudo apt-get install \
 ```
 
 Docker GPG Key hinzufügen:
-```
+```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
@@ -36,7 +36,7 @@ sub   rsa4096 2017-02-22 [S]
 ```
 
 Nun kann man die DOcker repository hinzufügen:
-```
+```bash
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -57,13 +57,13 @@ Nun sollte man mit dem Befehl ```docker -v``` die aktuelle installierte Dockerve
 
 1. Ziehe ein mysql-Image mit der aktuellsten Version. Es können auch ältere Versionen ausgewählt werden, wenn ```latest``` durch die entsprechende Version ersetzt wird. Eine Übersicht der Versionen sind auf [dieser Seite](https://hub.docker.com/_/mysql)
 
-```
+```bash
 docker pull mysql/mysql-server:latest
 ```
 
 2. Überprüfen, ob das Images erfolgreich heruntergeladen wurde.
 
-```
+```bash
 docker images
 ```
 
@@ -71,13 +71,13 @@ docker images
 
 1. Nun wird ein container erzeugt. ```[container_name]``` muss durch einen gewünschten Namen ersetzt werden. Die Option ```-d``` weist Docker an, den Container als Dienst im Hintergrund laufen zu lassen. Es kann wieder eine andere Version ausgewählt werden, indem ```latest``` durch die entsprechende Versions-Nummer ersetzt wird.
 
-```
+```bash
 docker run --name=[container_name] -d mysql/mysql-server:latest
 ```
 
 2. Überprüfen, ob der MySQL Container gestartet ist.
 
-```
+```bash
 docker ps
 ```
 
@@ -86,13 +86,13 @@ docker ps
 
 1. Zuerst muss MySQL client package installiert werden.
 
-```
+```bash
 apt-get install mysql-client
 ```
 
 2. Dann den MySQL client im Container starten.
 
-```
+```bash
 docker exec -it [container_name] mysql -uroot -p
 ```
 ![rootpw](https://github.com/SayHeyD/M300-BIST/blob/master/images/tempsnip.png)
@@ -101,8 +101,8 @@ docker exec -it [container_name] mysql -uroot -p
 
 4. Zum Schluss das root-Passwort ändern. ```[newpassword]``` durch das neue Passwort ersetzen.
 
-```
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```
 
 #### Schritt 4: MySQL Container konfigurieren (K3)
@@ -111,7 +111,7 @@ Info: Die Konfigurations-Optionen finden sich unter folgenden Pfad:  ```/etc/mys
 
 1. Zuerst ein neuer Pfad für den Container erstellen.
 
-```
+```bash
 mkdir -p /root/docker/[container_name]/conf.d
 ```
 
@@ -119,7 +119,7 @@ mkdir -p /root/docker/[container_name]/conf.d
 
 Dazu muss der Container gestartet werden und den volumepfad mit folgenden befehlen gebildet werden.
 
-```
+```bash
 docker run \
 --detach \
 --name=[container_name]\
@@ -131,7 +131,7 @@ mysql
 
 3. Um zu überprüfen, ob der Container die Konfig-Datei vom Host ladet, folgenden Befehl ausführen.
 
-```
+```bash
 mysql -uroot -pmypassword -h127.0.0.1 -P6603 -e 'show global variables like "max_connections"';
 ```
 
@@ -453,3 +453,8 @@ Ich habe gelernt wie Container in der Praxis angewendet werden. Es gab gute eins
 
 ### David
 
+Im Rahmen der Übungen und Aufgabenstellungen, habe ich einiges an Wissen wiederaufgefrischt und dazugelernt, was Docker betrifft, ebenfalls habe ich viel dazugelernt was das erstellen von Docker-images angeht.
+
+Ich denke das Containerisierung eine grosse Zukunft hat, jedoch sehe ich diese Zukunft weniger bei KMUs als bei grösseren Unternhemen wenn nicht sogar bei Unternehmen wie Amazon oder Google welche Conatiner Lösungen als IaaS anbieten. Ich sehe die Zukunft eher in solchen Unternehmen, da das erstmalige Aufsetzen einer solchen Umgebung sehr viel Zeit und Wissen in Anspruch nimmt, denke ich das sehr viele Unternehmen sich diese Technologie nicht leisten können oder leisten wollen.
+
+Mich würde eher interessieren, wie man die Ersttellung der Infrastruktur automatisieren könnte, als die Infrastruktur selbst aufsetzen zu müssen (AWS mässig)
