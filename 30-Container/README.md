@@ -432,9 +432,10 @@ Die Möglichkeiten und die Vielzahl an Verwendungszewecken, welche mit Container
 
 ### Moritz
 
+Ich habe nur von Docker und Kubernetes gehört zuvor. Privat oder geschäftlich hatte ich nie damit zu tun. Das konzept habe ich mir schonmal angeschaut vor diesem Modul da es mir auf Youtube vorgeschlagen wurde.
 ### David
 
-Ich habe schon ein bisschen mit Docker gearbeitet und betreibe einen Mailserver mit [Mailcow](https://mailcow.email/) welcher auf Docker aufbaut. Ebenfalls habe ich schon kleine Services mit Docker und Docker-compose entwickelt und deployed. Diese sind aber nciht mehr im Betrieb.
+Ich habe schon ein bisschen mit Docker gearbeitet und betreibe einen Mailserver mit [Mailcow](https://mailcow.email/) welcher auf Docker aufbaut. Ebenfalls habe ich schon kleine Services mit Docker und Docker-compose entwickelt und deployed. Diese sind aber nicht mehr im Betrieb.
 
 ## Persönliche Lernentwicklung & Reflexion
 
@@ -447,6 +448,7 @@ Die Handhabung und das Verständnis wie genau was und wo erstellt werden sollte,
 Ich denke jedoch, dass das aufziehen und unterhalten einer solchen Conainer-Umgebung, ohne grosse Übung, viel Zeit in Anspruch nimmt. Die Idee finde ich sehr gut, da eine dynamische Arbeitsweise geschaffen werden kann und schnell neue Funktionen und Microservices erstellt und bearbeitet werden können. 
 
 ### Moritz
+
 
 ### David
 
