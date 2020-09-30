@@ -325,6 +325,8 @@ Befehl zum starten des MySQL-Containers: ```docker run --name=reverse-proxy --ne
 
 Nun sollten wir die Web-App über die IP des Host-Servers erreichen können. Ebenfalls sollten wir die container mit dem command ```docker ps``` sehen können. Wenn alles gut gelaufen ist, sollte beim Status aller Container UP stehen.
 
+Das Finale Produkt kann [hier](http://135.181.93.7/) eingesehen werden.
+
 ## Testen eines Docker Services (K3)
 
 Um einen Docker Service zu testen gibt es mehrere Möglichkeiten. Die beste möglichkeit um die Funktionalität eines COntainers zu überprüfen sind die Logs von Docker.
