@@ -448,6 +448,7 @@ Die Handhabung und das Verständnis wie genau was und wo erstellt werden sollte,
 Ich denke jedoch, dass das aufziehen und unterhalten einer solchen Conainer-Umgebung, ohne grosse Übung, viel Zeit in Anspruch nimmt. Die Idee finde ich sehr gut, da eine dynamische Arbeitsweise geschaffen werden kann und schnell neue Funktionen und Microservices erstellt und bearbeitet werden können. 
 
 ### Moritz
+Ich habe gelernt wie Container in der Praxis angewendet werden. Es gab gute einsicht dies in der Praxis zu tun und mein verständniss ist einiges besser als zuvor. Dies wird mir sicher in zukunft was bringen auch wen ich es in der Firma und Privat in naher zukunft vermutlich nicht produktiv anwenden werde, jedoch sicher mal etwas testen und ausprobieren um es mehr zu verstehen.
 
 
 ### David
